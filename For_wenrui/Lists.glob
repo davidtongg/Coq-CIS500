@@ -1,0 +1,1151 @@
+DIGEST 68f15e97b078c1f3bc18c8effb18e910
+FLists
+R122:130 Induction <> <> lib
+mod 141:147 <> NatList
+ind 446:452 NatList natprod
+constr 466:469 NatList pair
+R487:493 Lists <> natprod ind
+R480:482 Coq.Init.Datatypes <> nat ind
+R473:475 Coq.Init.Datatypes <> nat ind
+R741:744 Lists NatList pair constr
+def 975:977 NatList fst
+R984:990 Lists NatList natprod ind
+R995:997 Coq.Init.Datatypes <> nat ind
+R1011:1011 Lists <> p var
+R1022:1025 Lists NatList pair constr
+def 1054:1056 NatList snd
+R1063:1069 Lists NatList natprod ind
+R1074:1076 Coq.Init.Datatypes <> nat ind
+R1090:1090 Lists <> p var
+R1101:1104 Lists NatList pair constr
+R1138:1140 Lists NatList fst def
+R1143:1146 Lists NatList pair constr
+R1404:1407 Lists NatList pair constr
+not 1388 NatList ::'('_x_','_x_')'
+R1641:1643 Lists NatList fst def
+R1645:1645 Lists NatList ::'('_x_','_x_')' not
+R1647:1647 Lists NatList ::'('_x_','_x_')' not
+R1649:1649 Lists NatList ::'('_x_','_x_')' not
+def 1665:1668 NatList fst'
+R1675:1681 Lists NatList natprod ind
+R1686:1688 Coq.Init.Datatypes <> nat ind
+R1702:1702 Lists <> p var
+R1713:1713 Lists NatList ::'('_x_','_x_')' not
+R1715:1715 Lists NatList ::'('_x_','_x_')' not
+R1717:1717 Lists NatList ::'('_x_','_x_')' not
+def 1742:1745 NatList snd'
+R1752:1758 Lists NatList natprod ind
+R1763:1765 Coq.Init.Datatypes <> nat ind
+R1779:1779 Lists <> p var
+R1790:1790 Lists NatList ::'('_x_','_x_')' not
+R1792:1792 Lists NatList ::'('_x_','_x_')' not
+R1794:1794 Lists NatList ::'('_x_','_x_')' not
+def 1820:1828 NatList swap_pair
+R1835:1841 Lists NatList natprod ind
+R1846:1852 Lists NatList natprod ind
+R1866:1866 Lists <> p var
+R1877:1877 Lists NatList ::'('_x_','_x_')' not
+R1879:1879 Lists NatList ::'('_x_','_x_')' not
+R1881:1881 Lists NatList ::'('_x_','_x_')' not
+R1886:1886 Lists NatList ::'('_x_','_x_')' not
+R1888:1888 Lists NatList ::'('_x_','_x_')' not
+R1890:1890 Lists NatList ::'('_x_','_x_')' not
+prf 2124:2142 NatList surjective_pairing'
+R2160:2162 Coq.Init.Datatypes <> nat ind
+R2173:2175 Coq.Init.Logic <> :type_scope:x_'='_x not
+R2168:2168 Lists NatList ::'('_x_','_x_')' not
+R2170:2170 Lists NatList ::'('_x_','_x_')' not
+R2172:2172 Lists NatList ::'('_x_','_x_')' not
+R2169:2169 Lists <> n var
+R2171:2171 Lists <> m var
+R2176:2176 Lists NatList ::'('_x_','_x_')' not
+R2186:2187 Lists NatList ::'('_x_','_x_')' not
+R2197:2197 Lists NatList ::'('_x_','_x_')' not
+R2177:2179 Lists NatList fst def
+R2181:2181 Lists NatList ::'('_x_','_x_')' not
+R2183:2183 Lists NatList ::'('_x_','_x_')' not
+R2185:2185 Lists NatList ::'('_x_','_x_')' not
+R2182:2182 Lists <> n var
+R2184:2184 Lists <> m var
+R2188:2190 Lists NatList snd def
+R2192:2192 Lists NatList ::'('_x_','_x_')' not
+R2194:2194 Lists NatList ::'('_x_','_x_')' not
+R2196:2196 Lists NatList ::'('_x_','_x_')' not
+R2193:2193 Lists <> n var
+R2195:2195 Lists <> m var
+prf 2324:2347 NatList surjective_pairing_stuck
+R2363:2369 Lists NatList natprod ind
+R2376:2378 Coq.Init.Logic <> :type_scope:x_'='_x not
+R2375:2375 Lists <> p var
+R2379:2379 Lists NatList ::'('_x_','_x_')' not
+R2385:2386 Lists NatList ::'('_x_','_x_')' not
+R2392:2392 Lists NatList ::'('_x_','_x_')' not
+R2380:2382 Lists NatList fst def
+R2384:2384 Lists <> p var
+R2387:2389 Lists NatList snd def
+R2391:2391 Lists <> p var
+prf 2775:2792 NatList surjective_pairing
+R2808:2814 Lists NatList natprod ind
+R2821:2823 Coq.Init.Logic <> :type_scope:x_'='_x not
+R2820:2820 Lists <> p var
+R2824:2824 Lists NatList ::'('_x_','_x_')' not
+R2830:2831 Lists NatList ::'('_x_','_x_')' not
+R2837:2837 Lists NatList ::'('_x_','_x_')' not
+R2825:2827 Lists NatList fst def
+R2829:2829 Lists <> p var
+R2832:2834 Lists NatList snd def
+R2836:2836 Lists <> p var
+prf 3114:3128 NatList snd_fst_is_swap
+R3144:3150 Lists NatList natprod ind
+R3170:3172 Coq.Init.Logic <> :type_scope:x_'='_x not
+R3156:3156 Lists NatList ::'('_x_','_x_')' not
+R3162:3163 Lists NatList ::'('_x_','_x_')' not
+R3169:3169 Lists NatList ::'('_x_','_x_')' not
+R3157:3159 Lists NatList snd def
+R3161:3161 Lists <> p var
+R3164:3166 Lists NatList fst def
+R3168:3168 Lists <> p var
+R3173:3181 Lists NatList swap_pair def
+R3183:3183 Lists <> p var
+prf 3326:3340 NatList fst_swap_is_snd
+R3356:3362 Lists NatList natprod ind
+R3385:3387 Coq.Init.Logic <> :type_scope:x_'='_x not
+R3368:3370 Lists NatList fst def
+R3373:3381 Lists NatList swap_pair def
+R3383:3383 Lists <> p var
+R3388:3390 Lists NatList snd def
+R3392:3392 Lists <> p var
+ind 3772:3778 NatList natlist
+constr 3794:3796 NatList nil
+constr 3812:3815 NatList cons
+R3800:3806 Lists <> natlist ind
+R3837:3843 Lists <> natlist ind
+R3826:3832 Lists <> natlist ind
+R3819:3821 Coq.Init.Datatypes <> nat ind
+def 3909:3914 NatList mylist
+R3919:3922 Lists NatList cons constr
+R3927:3930 Lists NatList cons constr
+R3935:3938 Lists NatList cons constr
+R3942:3944 Lists NatList nil constr
+R4227:4230 Lists NatList cons constr
+not 4214 NatList ::x_'::'_x
+R4291:4293 Lists NatList nil constr
+not 4282 NatList ::'['_']'
+R4326:4329 Lists NatList cons constr
+R4337:4340 Lists NatList cons constr
+R4344:4346 Lists NatList nil constr
+not 4305 NatList ::'['_x_','_'..'_','_x_']'
+def 4705:4711 NatList mylist1
+R4717:4721 Lists NatList ::x_'::'_x not
+R4737:4737 Lists NatList ::x_'::'_x not
+R4723:4727 Lists NatList ::x_'::'_x not
+R4736:4736 Lists NatList ::x_'::'_x not
+R4729:4732 Lists NatList ::x_'::'_x not
+R4733:4735 Lists NatList nil constr
+def 4751:4757 NatList mylist2
+R4763:4766 Lists NatList ::x_'::'_x not
+R4768:4771 Lists NatList ::x_'::'_x not
+R4773:4776 Lists NatList ::x_'::'_x not
+R4777:4779 Lists NatList nil constr
+def 4793:4799 NatList mylist3
+R4804:4804 Lists NatList ::'['_x_','_'..'_','_x_']' not
+R4806:4806 Lists NatList ::'['_x_','_'..'_','_x_']' not
+R4808:4808 Lists NatList ::'['_x_','_'..'_','_x_']' not
+R4810:4810 Lists NatList ::'['_x_','_'..'_','_x_']' not
+def 6190:6195 NatList repeat
+R6208:6210 Coq.Init.Datatypes <> nat ind
+R6215:6221 Lists NatList natlist ind
+R6235:6239 Lists <> count var
+R6250:6250 Coq.Init.Datatypes <> O constr
+R6255:6257 Lists NatList nil constr
+R6263:6263 Coq.Init.Datatypes <> S constr
+R6276:6280 Lists NatList ::x_'::'_x not
+R6296:6296 Lists NatList ::x_'::'_x not
+R6275:6275 Lists <> n var
+R6281:6286 Lists <> repeat def
+R6288:6288 Lists <> n var
+def 6378:6383 NatList length
+R6388:6394 Lists NatList natlist ind
+R6399:6401 Coq.Init.Datatypes <> nat ind
+R6415:6415 Lists <> l var
+R6426:6428 Lists NatList nil constr
+R6433:6433 Coq.Init.Datatypes <> O constr
+R6440:6443 Lists NatList ::x_'::'_x not
+R6449:6449 Coq.Init.Datatypes <> S constr
+R6452:6457 Lists <> length def
+def 6541:6543 NatList app
+R6554:6560 Lists NatList natlist ind
+R6565:6571 Lists NatList natlist ind
+R6585:6586 Lists <> l1 var
+R6597:6599 Lists NatList nil constr
+R6607:6608 Lists <> l2 var
+R6615:6618 Lists NatList ::x_'::'_x not
+R6625:6629 Lists NatList ::x_'::'_x not
+R6638:6638 Lists NatList ::x_'::'_x not
+R6630:6632 Lists <> app def
+R6636:6637 Lists <> l2 var
+R6802:6804 Lists NatList app def
+not 6789 NatList ::x_'++'_x
+def 6878:6886 NatList test_app1
+R6917:6919 Coq.Init.Logic <> :type_scope:x_'='_x not
+R6908:6911 Lists NatList ::x_'++'_x not
+R6901:6901 Lists NatList ::'['_x_','_'..'_','_x_']' not
+R6903:6903 Lists NatList ::'['_x_','_'..'_','_x_']' not
+R6905:6905 Lists NatList ::'['_x_','_'..'_','_x_']' not
+R6907:6907 Lists NatList ::'['_x_','_'..'_','_x_']' not
+R6912:6912 Lists NatList ::'['_x_','_'..'_','_x_']' not
+R6914:6914 Lists NatList ::'['_x_','_'..'_','_x_']' not
+R6916:6916 Lists NatList ::'['_x_','_'..'_','_x_']' not
+R6920:6920 Lists NatList ::'['_x_','_'..'_','_x_']' not
+R6922:6922 Lists NatList ::'['_x_','_'..'_','_x_']' not
+R6924:6924 Lists NatList ::'['_x_','_'..'_','_x_']' not
+R6926:6926 Lists NatList ::'['_x_','_'..'_','_x_']' not
+R6928:6928 Lists NatList ::'['_x_','_'..'_','_x_']' not
+R6930:6930 Lists NatList ::'['_x_','_'..'_','_x_']' not
+def 6967:6975 NatList test_app2
+R7002:7004 Coq.Init.Logic <> :type_scope:x_'='_x not
+R6993:6996 Lists NatList ::x_'++'_x not
+R6990:6992 Lists NatList nil constr
+R6997:6997 Lists NatList ::'['_x_','_'..'_','_x_']' not
+R6999:6999 Lists NatList ::'['_x_','_'..'_','_x_']' not
+R7001:7001 Lists NatList ::'['_x_','_'..'_','_x_']' not
+R7005:7005 Lists NatList ::'['_x_','_'..'_','_x_']' not
+R7007:7007 Lists NatList ::'['_x_','_'..'_','_x_']' not
+R7009:7009 Lists NatList ::'['_x_','_'..'_','_x_']' not
+def 7046:7054 NatList test_app3
+R7083:7085 Coq.Init.Logic <> :type_scope:x_'='_x not
+R7076:7079 Lists NatList ::x_'++'_x not
+R7069:7069 Lists NatList ::'['_x_','_'..'_','_x_']' not
+R7071:7071 Lists NatList ::'['_x_','_'..'_','_x_']' not
+R7073:7073 Lists NatList ::'['_x_','_'..'_','_x_']' not
+R7075:7075 Lists NatList ::'['_x_','_'..'_','_x_']' not
+R7080:7082 Lists NatList nil constr
+R7086:7086 Lists NatList ::'['_x_','_'..'_','_x_']' not
+R7088:7088 Lists NatList ::'['_x_','_'..'_','_x_']' not
+R7090:7090 Lists NatList ::'['_x_','_'..'_','_x_']' not
+R7092:7092 Lists NatList ::'['_x_','_'..'_','_x_']' not
+def 7450:7451 NatList hd
+R7462:7464 Coq.Init.Datatypes <> nat ind
+R7470:7476 Lists NatList natlist ind
+R7481:7483 Coq.Init.Datatypes <> nat ind
+R7496:7496 Lists <> l var
+R7507:7509 Lists NatList nil constr
+R7514:7520 Lists <> default var
+R7527:7530 Lists NatList ::x_'::'_x not
+def 7557:7560 NatList tail
+R7565:7571 Lists NatList natlist ind
+R7576:7582 Lists NatList natlist ind
+R7595:7595 Lists <> l var
+R7606:7608 Lists NatList nil constr
+R7613:7615 Lists NatList nil constr
+R7624:7627 Lists NatList ::x_'::'_x not
+def 7651:7658 NatList test_hd1
+R7685:7687 Coq.Init.Logic <> :type_scope:x_'='_x not
+R7673:7674 Lists NatList hd def
+R7678:7678 Lists NatList ::'['_x_','_'..'_','_x_']' not
+R7680:7680 Lists NatList ::'['_x_','_'..'_','_x_']' not
+R7682:7682 Lists NatList ::'['_x_','_'..'_','_x_']' not
+R7684:7684 Lists NatList ::'['_x_','_'..'_','_x_']' not
+def 7725:7732 NatList test_hd2
+R7754:7756 Coq.Init.Logic <> :type_scope:x_'='_x not
+R7747:7748 Lists NatList hd def
+R7752:7753 Lists NatList ::'['_']' not
+def 7794:7802 NatList test_tail
+R7828:7830 Coq.Init.Logic <> :type_scope:x_'='_x not
+R7816:7819 Lists NatList tail def
+R7821:7821 Lists NatList ::'['_x_','_'..'_','_x_']' not
+R7823:7823 Lists NatList ::'['_x_','_'..'_','_x_']' not
+R7825:7825 Lists NatList ::'['_x_','_'..'_','_x_']' not
+R7827:7827 Lists NatList ::'['_x_','_'..'_','_x_']' not
+R7831:7831 Lists NatList ::'['_x_','_'..'_','_x_']' not
+R7833:7833 Lists NatList ::'['_x_','_'..'_','_x_']' not
+R7835:7835 Lists NatList ::'['_x_','_'..'_','_x_']' not
+def 8024:8031 NatList nonzeros
+R8036:8042 Lists NatList natlist ind
+R8047:8053 Lists NatList natlist ind
+R8065:8065 Lists <> l var
+R8076:8078 Lists NatList nil constr
+R8083:8085 Lists NatList nil constr
+R8091:8092 Lists NatList ::x_'::'_x not
+R8130:8130 Coq.Init.Datatypes <> O constr
+R8135:8142 Lists <> nonzeros def
+R8159:8159 Coq.Init.Datatypes <> S constr
+R8167:8167 Lists NatList ::x_'::'_x not
+R8171:8176 Lists NatList ::x_'::'_x not
+R8188:8188 Lists NatList ::x_'::'_x not
+R8168:8168 Coq.Init.Datatypes <> S constr
+R8177:8184 Lists <> nonzeros def
+def 8214:8226 NatList test_nonzeros
+R8264:8266 Coq.Init.Logic <> :type_scope:x_'='_x not
+R8240:8247 Lists NatList nonzeros def
+R8249:8249 Lists NatList ::'['_x_','_'..'_','_x_']' not
+R8251:8251 Lists NatList ::'['_x_','_'..'_','_x_']' not
+R8253:8253 Lists NatList ::'['_x_','_'..'_','_x_']' not
+R8255:8255 Lists NatList ::'['_x_','_'..'_','_x_']' not
+R8257:8257 Lists NatList ::'['_x_','_'..'_','_x_']' not
+R8259:8259 Lists NatList ::'['_x_','_'..'_','_x_']' not
+R8261:8261 Lists NatList ::'['_x_','_'..'_','_x_']' not
+R8263:8263 Lists NatList ::'['_x_','_'..'_','_x_']' not
+R8267:8267 Lists NatList ::'['_x_','_'..'_','_x_']' not
+R8269:8269 Lists NatList ::'['_x_','_'..'_','_x_']' not
+R8271:8271 Lists NatList ::'['_x_','_'..'_','_x_']' not
+R8273:8273 Lists NatList ::'['_x_','_'..'_','_x_']' not
+def 8312:8321 NatList oddmembers
+R8326:8332 Lists NatList natlist ind
+R8337:8343 Lists NatList natlist ind
+R8356:8356 Lists <> l var
+R8367:8369 Lists NatList nil constr
+R8374:8376 Lists NatList nil constr
+R8383:8384 Lists NatList ::x_'::'_x not
+R8403:8406 Basics <> oddb def
+R8429:8433 Basics <> false constr
+R8438:8447 Lists <> oddmembers def
+R8464:8467 Basics <> true constr
+R8473:8476 Lists NatList ::x_'::'_x not
+R8477:8486 Lists <> oddmembers def
+def 8516:8530 NatList test_oddmembers
+R8570:8572 Coq.Init.Logic <> :type_scope:x_'='_x not
+R8544:8553 Lists NatList oddmembers def
+R8555:8555 Lists NatList ::'['_x_','_'..'_','_x_']' not
+R8557:8557 Lists NatList ::'['_x_','_'..'_','_x_']' not
+R8559:8559 Lists NatList ::'['_x_','_'..'_','_x_']' not
+R8561:8561 Lists NatList ::'['_x_','_'..'_','_x_']' not
+R8563:8563 Lists NatList ::'['_x_','_'..'_','_x_']' not
+R8565:8565 Lists NatList ::'['_x_','_'..'_','_x_']' not
+R8567:8567 Lists NatList ::'['_x_','_'..'_','_x_']' not
+R8569:8569 Lists NatList ::'['_x_','_'..'_','_x_']' not
+R8573:8573 Lists NatList ::'['_x_','_'..'_','_x_']' not
+R8575:8575 Lists NatList ::'['_x_','_'..'_','_x_']' not
+R8577:8577 Lists NatList ::'['_x_','_'..'_','_x_']' not
+def 8643:8657 NatList countoddmembers
+R8662:8668 Lists NatList natlist ind
+R8673:8675 Coq.Init.Datatypes <> nat ind
+R8688:8688 Lists <> l var
+R8700:8702 Lists NatList nil constr
+R8714:8715 Lists NatList ::x_'::'_x not
+R8733:8736 Basics <> oddb def
+R8757:8761 Basics <> false constr
+R8766:8780 Lists <> countoddmembers def
+R8795:8798 Basics <> true constr
+R8803:8803 Coq.Init.Datatypes <> S constr
+R8806:8820 Lists <> countoddmembers def
+def 8850:8870 NatList test_countoddmembers1
+R8905:8907 Coq.Init.Logic <> :type_scope:x_'='_x not
+R8876:8890 Lists NatList countoddmembers def
+R8892:8892 Lists NatList ::'['_x_','_'..'_','_x_']' not
+R8894:8894 Lists NatList ::'['_x_','_'..'_','_x_']' not
+R8896:8896 Lists NatList ::'['_x_','_'..'_','_x_']' not
+R8898:8898 Lists NatList ::'['_x_','_'..'_','_x_']' not
+R8900:8900 Lists NatList ::'['_x_','_'..'_','_x_']' not
+R8902:8902 Lists NatList ::'['_x_','_'..'_','_x_']' not
+R8904:8904 Lists NatList ::'['_x_','_'..'_','_x_']' not
+def 8972:8992 NatList test_countoddmembers2
+R9021:9023 Coq.Init.Logic <> :type_scope:x_'='_x not
+R8998:9012 Lists NatList countoddmembers def
+R9014:9014 Lists NatList ::'['_x_','_'..'_','_x_']' not
+R9016:9016 Lists NatList ::'['_x_','_'..'_','_x_']' not
+R9018:9018 Lists NatList ::'['_x_','_'..'_','_x_']' not
+R9020:9020 Lists NatList ::'['_x_','_'..'_','_x_']' not
+def 9088:9108 NatList test_countoddmembers3
+R9133:9135 Coq.Init.Logic <> :type_scope:x_'='_x not
+R9114:9128 Lists NatList countoddmembers def
+R9130:9132 Lists NatList nil constr
+def 9907:9915 NatList alternate
+R9926:9932 Lists NatList natlist ind
+R9937:9943 Lists NatList natlist ind
+R9954:9955 Lists <> l1 var
+R9965:9967 Lists NatList nil constr
+R9972:9973 Lists <> l2 var
+R9979:9980 Lists NatList ::x_'::'_x not
+R9993:9994 Lists <> l2 var
+R10019:10021 Lists NatList nil constr
+R10027:10028 Lists NatList ::x_'::'_x not
+R10052:10053 Lists NatList ::x_'::'_x not
+R10061:10062 Lists NatList ::x_'::'_x not
+R10065:10067 Lists NatList ::x_'::'_x not
+R10083:10083 Lists NatList ::x_'::'_x not
+R10068:10076 Lists <> alternate def
+def 10116:10130 NatList test_alternate1
+R10165:10167 Coq.Init.Logic <> :type_scope:x_'='_x not
+R10140:10148 Lists NatList alternate def
+R10158:10158 Lists NatList ::'['_x_','_'..'_','_x_']' not
+R10160:10160 Lists NatList ::'['_x_','_'..'_','_x_']' not
+R10162:10162 Lists NatList ::'['_x_','_'..'_','_x_']' not
+R10164:10164 Lists NatList ::'['_x_','_'..'_','_x_']' not
+R10150:10150 Lists NatList ::'['_x_','_'..'_','_x_']' not
+R10152:10152 Lists NatList ::'['_x_','_'..'_','_x_']' not
+R10154:10154 Lists NatList ::'['_x_','_'..'_','_x_']' not
+R10156:10156 Lists NatList ::'['_x_','_'..'_','_x_']' not
+R10168:10168 Lists NatList ::'['_x_','_'..'_','_x_']' not
+R10170:10170 Lists NatList ::'['_x_','_'..'_','_x_']' not
+R10172:10172 Lists NatList ::'['_x_','_'..'_','_x_']' not
+R10174:10174 Lists NatList ::'['_x_','_'..'_','_x_']' not
+R10176:10176 Lists NatList ::'['_x_','_'..'_','_x_']' not
+R10178:10178 Lists NatList ::'['_x_','_'..'_','_x_']' not
+R10180:10180 Lists NatList ::'['_x_','_'..'_','_x_']' not
+def 10236:10250 NatList test_alternate2
+R10281:10283 Coq.Init.Logic <> :type_scope:x_'='_x not
+R10260:10268 Lists NatList alternate def
+R10274:10274 Lists NatList ::'['_x_','_'..'_','_x_']' not
+R10276:10276 Lists NatList ::'['_x_','_'..'_','_x_']' not
+R10278:10278 Lists NatList ::'['_x_','_'..'_','_x_']' not
+R10280:10280 Lists NatList ::'['_x_','_'..'_','_x_']' not
+R10270:10270 Lists NatList ::'['_x_','_'..'_','_x_']' not
+R10272:10272 Lists NatList ::'['_x_','_'..'_','_x_']' not
+R10284:10284 Lists NatList ::'['_x_','_'..'_','_x_']' not
+R10286:10286 Lists NatList ::'['_x_','_'..'_','_x_']' not
+R10288:10288 Lists NatList ::'['_x_','_'..'_','_x_']' not
+R10290:10290 Lists NatList ::'['_x_','_'..'_','_x_']' not
+R10292:10292 Lists NatList ::'['_x_','_'..'_','_x_']' not
+def 10335:10349 NatList test_alternate3
+R10380:10382 Coq.Init.Logic <> :type_scope:x_'='_x not
+R10359:10367 Lists NatList alternate def
+R10377:10377 Lists NatList ::'['_x_','_'..'_','_x_']' not
+R10379:10379 Lists NatList ::'['_x_','_'..'_','_x_']' not
+R10369:10369 Lists NatList ::'['_x_','_'..'_','_x_']' not
+R10371:10371 Lists NatList ::'['_x_','_'..'_','_x_']' not
+R10373:10373 Lists NatList ::'['_x_','_'..'_','_x_']' not
+R10375:10375 Lists NatList ::'['_x_','_'..'_','_x_']' not
+R10383:10383 Lists NatList ::'['_x_','_'..'_','_x_']' not
+R10385:10385 Lists NatList ::'['_x_','_'..'_','_x_']' not
+R10387:10387 Lists NatList ::'['_x_','_'..'_','_x_']' not
+R10389:10389 Lists NatList ::'['_x_','_'..'_','_x_']' not
+R10391:10391 Lists NatList ::'['_x_','_'..'_','_x_']' not
+def 10429:10443 NatList test_alternate4
+R10473:10475 Coq.Init.Logic <> :type_scope:x_'='_x not
+R10453:10461 Lists NatList alternate def
+R10466:10466 Lists NatList ::'['_x_','_'..'_','_x_']' not
+R10469:10469 Lists NatList ::'['_x_','_'..'_','_x_']' not
+R10472:10472 Lists NatList ::'['_x_','_'..'_','_x_']' not
+R10463:10464 Lists NatList ::'['_']' not
+R10476:10476 Lists NatList ::'['_x_','_'..'_','_x_']' not
+R10479:10479 Lists NatList ::'['_x_','_'..'_','_x_']' not
+R10482:10482 Lists NatList ::'['_x_','_'..'_','_x_']' not
+def 10828:10830 NatList bag
+R10835:10841 Lists NatList natlist ind
+def 11026:11030 NatList count
+R11035:11037 Coq.Init.Datatypes <> nat ind
+R11043:11045 Lists NatList bag def
+R11050:11052 Coq.Init.Datatypes <> nat ind
+R11064:11064 Lists <> s var
+R11074:11076 Lists NatList nil constr
+R11087:11088 Lists NatList ::x_'::'_x not
+R11101:11107 Basics <> beq_nat def
+R11111:11111 Lists <> v var
+R11137:11140 Basics <> true constr
+R11146:11146 Coq.Init.Datatypes <> S constr
+R11149:11153 Lists <> count def
+R11155:11155 Lists <> v var
+R11179:11183 Basics <> false constr
+R11189:11193 Lists <> count def
+R11195:11195 Lists <> v var
+def 11288:11298 NatList test_count1
+R11335:11337 Coq.Init.Logic <> :type_scope:x_'='_x not
+R11314:11318 Lists NatList count def
+R11322:11322 Lists NatList ::'['_x_','_'..'_','_x_']' not
+R11324:11324 Lists NatList ::'['_x_','_'..'_','_x_']' not
+R11326:11326 Lists NatList ::'['_x_','_'..'_','_x_']' not
+R11328:11328 Lists NatList ::'['_x_','_'..'_','_x_']' not
+R11330:11330 Lists NatList ::'['_x_','_'..'_','_x_']' not
+R11332:11332 Lists NatList ::'['_x_','_'..'_','_x_']' not
+R11334:11334 Lists NatList ::'['_x_','_'..'_','_x_']' not
+def 11374:11384 NatList test_count2
+R11421:11423 Coq.Init.Logic <> :type_scope:x_'='_x not
+R11400:11404 Lists NatList count def
+R11408:11408 Lists NatList ::'['_x_','_'..'_','_x_']' not
+R11410:11410 Lists NatList ::'['_x_','_'..'_','_x_']' not
+R11412:11412 Lists NatList ::'['_x_','_'..'_','_x_']' not
+R11414:11414 Lists NatList ::'['_x_','_'..'_','_x_']' not
+R11416:11416 Lists NatList ::'['_x_','_'..'_','_x_']' not
+R11418:11418 Lists NatList ::'['_x_','_'..'_','_x_']' not
+R11420:11420 Lists NatList ::'['_x_','_'..'_','_x_']' not
+def 12183:12185 NatList sum
+R12203:12205 Lists NatList bag def
+R12196:12198 Lists NatList bag def
+R12189:12191 Lists NatList bag def
+R12232:12234 Lists NatList app def
+def 12246:12254 NatList test_sum1
+R12299:12301 Coq.Init.Logic <> :type_scope:x_'='_x not
+R12270:12274 Lists NatList count def
+R12279:12281 Lists NatList sum def
+R12291:12291 Lists NatList ::'['_x_','_'..'_','_x_']' not
+R12293:12293 Lists NatList ::'['_x_','_'..'_','_x_']' not
+R12295:12295 Lists NatList ::'['_x_','_'..'_','_x_']' not
+R12297:12297 Lists NatList ::'['_x_','_'..'_','_x_']' not
+R12283:12283 Lists NatList ::'['_x_','_'..'_','_x_']' not
+R12285:12285 Lists NatList ::'['_x_','_'..'_','_x_']' not
+R12287:12287 Lists NatList ::'['_x_','_'..'_','_x_']' not
+R12289:12289 Lists NatList ::'['_x_','_'..'_','_x_']' not
+def 12342:12344 NatList add
+R12349:12351 Coq.Init.Datatypes <> nat ind
+R12357:12359 Lists NatList bag def
+R12364:12366 Lists NatList bag def
+R12372:12373 Lists NatList ::x_'::'_x not
+R12371:12371 Lists <> v var
+R12374:12374 Lists <> s var
+def 12387:12395 NatList test_add1
+R12436:12438 Coq.Init.Logic <> :type_scope:x_'='_x not
+R12413:12417 Lists NatList count def
+R12422:12424 Lists NatList add def
+R12428:12428 Lists NatList ::'['_x_','_'..'_','_x_']' not
+R12430:12430 Lists NatList ::'['_x_','_'..'_','_x_']' not
+R12432:12432 Lists NatList ::'['_x_','_'..'_','_x_']' not
+R12434:12434 Lists NatList ::'['_x_','_'..'_','_x_']' not
+def 12475:12483 NatList test_add2
+R12524:12526 Coq.Init.Logic <> :type_scope:x_'='_x not
+R12501:12505 Lists NatList count def
+R12510:12512 Lists NatList add def
+R12516:12516 Lists NatList ::'['_x_','_'..'_','_x_']' not
+R12518:12518 Lists NatList ::'['_x_','_'..'_','_x_']' not
+R12520:12520 Lists NatList ::'['_x_','_'..'_','_x_']' not
+R12522:12522 Lists NatList ::'['_x_','_'..'_','_x_']' not
+def 12567:12572 NatList member
+R12577:12579 Coq.Init.Datatypes <> nat ind
+R12585:12587 Lists NatList bag def
+R12592:12595 Basics <> bool ind
+R12607:12611 Lists NatList count def
+R12615:12615 Lists <> s var
+R12613:12613 Lists <> v var
+R12632:12636 Basics <> false constr
+R12646:12649 Basics <> true constr
+def 12665:12676 NatList test_member1
+R12707:12709 Coq.Init.Logic <> :type_scope:x_'='_x not
+R12691:12696 Lists NatList member def
+R12700:12700 Lists NatList ::'['_x_','_'..'_','_x_']' not
+R12702:12702 Lists NatList ::'['_x_','_'..'_','_x_']' not
+R12704:12704 Lists NatList ::'['_x_','_'..'_','_x_']' not
+R12706:12706 Lists NatList ::'['_x_','_'..'_','_x_']' not
+R12710:12713 Basics <> true constr
+def 12749:12760 NatList test_member2
+R12791:12793 Coq.Init.Logic <> :type_scope:x_'='_x not
+R12775:12780 Lists NatList member def
+R12784:12784 Lists NatList ::'['_x_','_'..'_','_x_']' not
+R12786:12786 Lists NatList ::'['_x_','_'..'_','_x_']' not
+R12788:12788 Lists NatList ::'['_x_','_'..'_','_x_']' not
+R12790:12790 Lists NatList ::'['_x_','_'..'_','_x_']' not
+R12794:12798 Basics <> false constr
+def 12974:12983 NatList remove_one
+R12988:12990 Coq.Init.Datatypes <> nat ind
+R12996:12998 Lists NatList bag def
+R13003:13005 Lists NatList bag def
+R13151:13155 Basics <> admit prfax
+def 13167:13182 NatList test_remove_one1
+R13227:13229 Coq.Init.Logic <> :type_scope:x_'='_x not
+R13193:13197 Lists NatList count def
+R13202:13211 Lists NatList remove_one def
+R13215:13215 Lists NatList ::'['_x_','_'..'_','_x_']' not
+R13217:13217 Lists NatList ::'['_x_','_'..'_','_x_']' not
+R13219:13219 Lists NatList ::'['_x_','_'..'_','_x_']' not
+R13221:13221 Lists NatList ::'['_x_','_'..'_','_x_']' not
+R13223:13223 Lists NatList ::'['_x_','_'..'_','_x_']' not
+R13225:13225 Lists NatList ::'['_x_','_'..'_','_x_']' not
+def 13271:13286 NatList test_remove_one2
+R13329:13331 Coq.Init.Logic <> :type_scope:x_'='_x not
+R13297:13301 Lists NatList count def
+R13306:13315 Lists NatList remove_one def
+R13319:13319 Lists NatList ::'['_x_','_'..'_','_x_']' not
+R13321:13321 Lists NatList ::'['_x_','_'..'_','_x_']' not
+R13323:13323 Lists NatList ::'['_x_','_'..'_','_x_']' not
+R13325:13325 Lists NatList ::'['_x_','_'..'_','_x_']' not
+R13327:13327 Lists NatList ::'['_x_','_'..'_','_x_']' not
+def 13373:13388 NatList test_remove_one3
+R13435:13437 Coq.Init.Logic <> :type_scope:x_'='_x not
+R13399:13403 Lists NatList count def
+R13408:13417 Lists NatList remove_one def
+R13421:13421 Lists NatList ::'['_x_','_'..'_','_x_']' not
+R13423:13423 Lists NatList ::'['_x_','_'..'_','_x_']' not
+R13425:13425 Lists NatList ::'['_x_','_'..'_','_x_']' not
+R13427:13427 Lists NatList ::'['_x_','_'..'_','_x_']' not
+R13429:13429 Lists NatList ::'['_x_','_'..'_','_x_']' not
+R13431:13431 Lists NatList ::'['_x_','_'..'_','_x_']' not
+R13433:13433 Lists NatList ::'['_x_','_'..'_','_x_']' not
+def 13479:13494 NatList test_remove_one4
+R13538:13540 Coq.Init.Logic <> :type_scope:x_'='_x not
+R13500:13504 Lists NatList count def
+R13509:13518 Lists NatList remove_one def
+R13522:13522 Lists NatList ::'['_x_','_'..'_','_x_']' not
+R13524:13524 Lists NatList ::'['_x_','_'..'_','_x_']' not
+R13526:13526 Lists NatList ::'['_x_','_'..'_','_x_']' not
+R13528:13528 Lists NatList ::'['_x_','_'..'_','_x_']' not
+R13530:13530 Lists NatList ::'['_x_','_'..'_','_x_']' not
+R13532:13532 Lists NatList ::'['_x_','_'..'_','_x_']' not
+R13534:13534 Lists NatList ::'['_x_','_'..'_','_x_']' not
+R13536:13536 Lists NatList ::'['_x_','_'..'_','_x_']' not
+def 13584:13593 NatList remove_all
+R13598:13600 Coq.Init.Datatypes <> nat ind
+R13606:13608 Lists NatList bag def
+R13613:13615 Lists NatList bag def
+R13641:13645 Basics <> admit prfax
+def 13657:13672 NatList test_remove_all1
+R13718:13720 Coq.Init.Logic <> :type_scope:x_'='_x not
+R13684:13688 Lists NatList count def
+R13693:13702 Lists NatList remove_all def
+R13706:13706 Lists NatList ::'['_x_','_'..'_','_x_']' not
+R13708:13708 Lists NatList ::'['_x_','_'..'_','_x_']' not
+R13710:13710 Lists NatList ::'['_x_','_'..'_','_x_']' not
+R13712:13712 Lists NatList ::'['_x_','_'..'_','_x_']' not
+R13714:13714 Lists NatList ::'['_x_','_'..'_','_x_']' not
+R13716:13716 Lists NatList ::'['_x_','_'..'_','_x_']' not
+def 13762:13777 NatList test_remove_all2
+R13821:13823 Coq.Init.Logic <> :type_scope:x_'='_x not
+R13789:13793 Lists NatList count def
+R13798:13807 Lists NatList remove_all def
+R13811:13811 Lists NatList ::'['_x_','_'..'_','_x_']' not
+R13813:13813 Lists NatList ::'['_x_','_'..'_','_x_']' not
+R13815:13815 Lists NatList ::'['_x_','_'..'_','_x_']' not
+R13817:13817 Lists NatList ::'['_x_','_'..'_','_x_']' not
+R13819:13819 Lists NatList ::'['_x_','_'..'_','_x_']' not
+def 13865:13880 NatList test_remove_all3
+R13928:13930 Coq.Init.Logic <> :type_scope:x_'='_x not
+R13892:13896 Lists NatList count def
+R13901:13910 Lists NatList remove_all def
+R13914:13914 Lists NatList ::'['_x_','_'..'_','_x_']' not
+R13916:13916 Lists NatList ::'['_x_','_'..'_','_x_']' not
+R13918:13918 Lists NatList ::'['_x_','_'..'_','_x_']' not
+R13920:13920 Lists NatList ::'['_x_','_'..'_','_x_']' not
+R13922:13922 Lists NatList ::'['_x_','_'..'_','_x_']' not
+R13924:13924 Lists NatList ::'['_x_','_'..'_','_x_']' not
+R13926:13926 Lists NatList ::'['_x_','_'..'_','_x_']' not
+def 13972:13987 NatList test_remove_all4
+R14043:14045 Coq.Init.Logic <> :type_scope:x_'='_x not
+R13999:14003 Lists NatList count def
+R14008:14017 Lists NatList remove_all def
+R14021:14021 Lists NatList ::'['_x_','_'..'_','_x_']' not
+R14023:14023 Lists NatList ::'['_x_','_'..'_','_x_']' not
+R14025:14025 Lists NatList ::'['_x_','_'..'_','_x_']' not
+R14027:14027 Lists NatList ::'['_x_','_'..'_','_x_']' not
+R14029:14029 Lists NatList ::'['_x_','_'..'_','_x_']' not
+R14031:14031 Lists NatList ::'['_x_','_'..'_','_x_']' not
+R14033:14033 Lists NatList ::'['_x_','_'..'_','_x_']' not
+R14035:14035 Lists NatList ::'['_x_','_'..'_','_x_']' not
+R14037:14037 Lists NatList ::'['_x_','_'..'_','_x_']' not
+R14039:14039 Lists NatList ::'['_x_','_'..'_','_x_']' not
+R14041:14041 Lists NatList ::'['_x_','_'..'_','_x_']' not
+def 14089:14094 NatList subset
+R14100:14102 Lists NatList bag def
+R14109:14111 Lists NatList bag def
+R14116:14119 Basics <> bool ind
+R14145:14149 Basics <> admit prfax
+def 14161:14172 NatList test_subset1
+R14210:14212 Coq.Init.Logic <> :type_scope:x_'='_x not
+R14188:14193 Lists NatList subset def
+R14201:14201 Lists NatList ::'['_x_','_'..'_','_x_']' not
+R14203:14203 Lists NatList ::'['_x_','_'..'_','_x_']' not
+R14205:14205 Lists NatList ::'['_x_','_'..'_','_x_']' not
+R14207:14207 Lists NatList ::'['_x_','_'..'_','_x_']' not
+R14209:14209 Lists NatList ::'['_x_','_'..'_','_x_']' not
+R14195:14195 Lists NatList ::'['_x_','_'..'_','_x_']' not
+R14197:14197 Lists NatList ::'['_x_','_'..'_','_x_']' not
+R14199:14199 Lists NatList ::'['_x_','_'..'_','_x_']' not
+R14213:14216 Basics <> true constr
+def 14257:14268 NatList test_subset2
+R14308:14310 Coq.Init.Logic <> :type_scope:x_'='_x not
+R14284:14289 Lists NatList subset def
+R14299:14299 Lists NatList ::'['_x_','_'..'_','_x_']' not
+R14301:14301 Lists NatList ::'['_x_','_'..'_','_x_']' not
+R14303:14303 Lists NatList ::'['_x_','_'..'_','_x_']' not
+R14305:14305 Lists NatList ::'['_x_','_'..'_','_x_']' not
+R14307:14307 Lists NatList ::'['_x_','_'..'_','_x_']' not
+R14291:14291 Lists NatList ::'['_x_','_'..'_','_x_']' not
+R14293:14293 Lists NatList ::'['_x_','_'..'_','_x_']' not
+R14295:14295 Lists NatList ::'['_x_','_'..'_','_x_']' not
+R14297:14297 Lists NatList ::'['_x_','_'..'_','_x_']' not
+R14311:14315 Basics <> false constr
+prf 15131:15137 NatList nil_app
+R15150:15156 Lists NatList natlist ind
+R15168:15170 Coq.Init.Logic <> :type_scope:x_'='_x not
+R15163:15166 Lists NatList ::x_'++'_x not
+R15161:15162 Lists NatList ::'['_']' not
+R15167:15167 Lists <> l var
+R15171:15171 Lists <> l var
+prf 15512:15525 NatList tl_length_pred
+R15538:15544 Lists NatList natlist ind
+R15564:15566 Coq.Init.Logic <> :type_scope:x_'='_x not
+R15549:15552 Coq.Init.Peano <> pred def
+R15555:15560 Lists NatList length def
+R15562:15562 Lists <> l var
+R15567:15572 Lists NatList length def
+R15575:15578 Lists NatList tail def
+R15580:15580 Lists <> l var
+prf 18118:18124 NatList app_ass
+R18146:18152 Lists NatList natlist ind
+R18174:18176 Coq.Init.Logic <> :type_scope:x_'='_x not
+R18158:18158 Lists NatList ::x_'++'_x not
+R18167:18171 Lists NatList ::x_'++'_x not
+R18161:18164 Lists NatList ::x_'++'_x not
+R18159:18160 Lists <> l1 var
+R18165:18166 Lists <> l2 var
+R18172:18173 Lists <> l3 var
+R18179:18183 Lists NatList ::x_'++'_x not
+R18192:18192 Lists NatList ::x_'++'_x not
+R18177:18178 Lists <> l1 var
+R18186:18189 Lists NatList ::x_'++'_x not
+R18184:18185 Lists <> l2 var
+R18190:18191 Lists <> l3 var
+prf 19666:19675 NatList app_length
+R19694:19700 Lists NatList natlist ind
+R19723:19725 Coq.Init.Logic <> :type_scope:x_'='_x not
+R19706:19711 Lists NatList length def
+R19716:19719 Lists NatList ::x_'++'_x not
+R19714:19715 Lists <> l1 var
+R19720:19721 Lists <> l2 var
+R19726:19726 Basics <> :nat_scope:x_'+'_x not
+R19736:19740 Basics <> :nat_scope:x_'+'_x not
+R19750:19750 Basics <> :nat_scope:x_'+'_x not
+R19727:19732 Lists NatList length def
+R19734:19735 Lists <> l1 var
+R19741:19746 Lists NatList length def
+R19748:19749 Lists <> l2 var
+def 20097:20100 NatList snoc
+R20105:20111 Lists NatList natlist ind
+R20117:20119 Coq.Init.Datatypes <> nat ind
+R20124:20130 Lists NatList natlist ind
+R20144:20144 Lists <> l var
+R20155:20157 Lists NatList nil constr
+R20165:20165 Lists NatList ::'['_x_','_'..'_','_x_']' not
+R20167:20167 Lists NatList ::'['_x_','_'..'_','_x_']' not
+R20166:20166 Lists <> v var
+R20174:20177 Lists NatList ::x_'::'_x not
+R20184:20188 Lists NatList ::x_'::'_x not
+R20197:20197 Lists NatList ::x_'::'_x not
+R20189:20192 Lists <> snoc def
+R20196:20196 Lists <> v var
+def 20296:20298 NatList rev
+R20303:20309 Lists NatList natlist ind
+R20314:20320 Lists NatList natlist ind
+R20334:20334 Lists <> l var
+R20345:20347 Lists NatList nil constr
+R20355:20357 Lists NatList nil constr
+R20364:20367 Lists NatList ::x_'::'_x not
+R20373:20376 Lists NatList snoc def
+R20379:20381 Lists <> rev def
+def 20404:20412 NatList test_rev1
+R20437:20439 Coq.Init.Logic <> :type_scope:x_'='_x not
+R20426:20428 Lists NatList rev def
+R20430:20430 Lists NatList ::'['_x_','_'..'_','_x_']' not
+R20432:20432 Lists NatList ::'['_x_','_'..'_','_x_']' not
+R20434:20434 Lists NatList ::'['_x_','_'..'_','_x_']' not
+R20436:20436 Lists NatList ::'['_x_','_'..'_','_x_']' not
+R20440:20440 Lists NatList ::'['_x_','_'..'_','_x_']' not
+R20442:20442 Lists NatList ::'['_x_','_'..'_','_x_']' not
+R20444:20444 Lists NatList ::'['_x_','_'..'_','_x_']' not
+R20446:20446 Lists NatList ::'['_x_','_'..'_','_x_']' not
+def 20483:20491 NatList test_rev2
+R20512:20514 Coq.Init.Logic <> :type_scope:x_'='_x not
+R20505:20507 Lists NatList rev def
+R20509:20511 Lists NatList nil constr
+R20515:20517 Lists NatList nil constr
+prf 20878:20896 NatList rev_length_firsttry
+R20911:20917 Lists NatList natlist ind
+R20936:20938 Coq.Init.Logic <> :type_scope:x_'='_x not
+R20922:20927 Lists NatList length def
+R20930:20932 Lists NatList rev def
+R20934:20934 Lists <> l var
+R20939:20944 Lists NatList length def
+R20946:20946 Lists <> l var
+prf 21663:21673 NatList length_snoc
+R21688:21690 Coq.Init.Datatypes <> nat ind
+R21704:21710 Lists NatList natlist ind
+R21732:21734 Coq.Init.Logic <> :type_scope:x_'='_x not
+R21715:21720 Lists NatList length def
+R21723:21726 Lists NatList snoc def
+R21730:21730 Lists <> n var
+R21728:21728 Lists <> l var
+R21735:21735 Coq.Init.Datatypes <> S constr
+R21738:21743 Lists NatList length def
+R21745:21745 Lists <> l var
+prf 21961:21970 NatList rev_length
+R21985:21991 Lists NatList natlist ind
+R22010:22012 Coq.Init.Logic <> :type_scope:x_'='_x not
+R21996:22001 Lists NatList length def
+R22004:22006 Lists NatList rev def
+R22008:22008 Lists <> l var
+R22013:22018 Lists NatList length def
+R22020:22020 Lists <> l var
+R22143:22153 Lists NatList length_snoc thm
+R22143:22153 Lists NatList length_snoc thm
+prf 26089:26099 NatList app_nil_end
+R26114:26120 Lists NatList natlist ind
+R26133:26135 Coq.Init.Logic <> :type_scope:x_'='_x not
+R26127:26130 Lists NatList ::x_'++'_x not
+R26126:26126 Lists <> l var
+R26131:26132 Lists NatList ::'['_']' not
+R26136:26136 Lists <> l var
+prf 26271:26278 NatList rev_snoc
+R26292:26298 Lists NatList natlist ind
+R26313:26315 Coq.Init.Datatypes <> nat ind
+R26334:26336 Coq.Init.Logic <> :type_scope:x_'='_x not
+R26320:26322 Lists NatList rev def
+R26325:26328 Lists NatList snoc def
+R26332:26332 Lists <> n var
+R26330:26330 Lists <> l var
+R26338:26339 Lists NatList ::x_'::'_x not
+R26337:26337 Lists <> n var
+R26340:26342 Lists NatList rev def
+R26344:26344 Lists <> l var
+prf 26484:26497 NatList rev_involutive
+R26512:26518 Lists NatList natlist ind
+R26534:26536 Coq.Init.Logic <> :type_scope:x_'='_x not
+R26523:26525 Lists NatList rev def
+R26528:26530 Lists NatList rev def
+R26532:26532 Lists <> l var
+R26537:26537 Lists <> l var
+R26650:26657 Lists NatList rev_snoc thm
+R26650:26657 Lists NatList rev_snoc thm
+prf 26855:26862 NatList app_ass4
+R26887:26893 Lists NatList natlist ind
+R26922:26924 Coq.Init.Logic <> :type_scope:x_'='_x not
+R26900:26904 Lists NatList ::x_'++'_x not
+R26921:26921 Lists NatList ::x_'++'_x not
+R26898:26899 Lists <> l1 var
+R26907:26911 Lists NatList ::x_'++'_x not
+R26920:26920 Lists NatList ::x_'++'_x not
+R26905:26906 Lists <> l2 var
+R26914:26917 Lists NatList ::x_'++'_x not
+R26912:26913 Lists <> l3 var
+R26918:26919 Lists <> l4 var
+R26925:26925 Lists NatList ::x_'++'_x not
+R26942:26946 Lists NatList ::x_'++'_x not
+R26926:26926 Lists NatList ::x_'++'_x not
+R26935:26939 Lists NatList ::x_'++'_x not
+R26929:26932 Lists NatList ::x_'++'_x not
+R26927:26928 Lists <> l1 var
+R26933:26934 Lists <> l2 var
+R26940:26941 Lists <> l3 var
+R26947:26948 Lists <> l4 var
+R26977:26983 Lists NatList app_ass thm
+R26997:27003 Lists NatList app_ass thm
+R27017:27023 Lists NatList app_ass thm
+R27037:27043 Lists NatList app_ass thm
+R26977:26983 Lists NatList app_ass thm
+R26997:27003 Lists NatList app_ass thm
+R27017:27023 Lists NatList app_ass thm
+R27037:27043 Lists NatList app_ass thm
+prf 27073:27083 NatList snoc_append
+R27097:27103 Lists NatList natlist ind
+R27109:27111 Coq.Init.Datatypes <> nat ind
+R27125:27127 Coq.Init.Logic <> :type_scope:x_'='_x not
+R27117:27120 Lists NatList snoc def
+R27124:27124 Lists <> n var
+R27122:27122 Lists <> l var
+R27129:27132 Lists NatList ::x_'++'_x not
+R27128:27128 Lists <> l var
+R27133:27133 Lists NatList ::'['_x_','_'..'_','_x_']' not
+R27135:27135 Lists NatList ::'['_x_','_'..'_','_x_']' not
+R27134:27134 Lists <> n var
+prf 27279:27287 NatList distr_rev
+R27306:27312 Lists NatList natlist ind
+R27331:27333 Coq.Init.Logic <> :type_scope:x_'='_x not
+R27317:27319 Lists NatList rev def
+R27324:27327 Lists NatList ::x_'++'_x not
+R27322:27323 Lists <> l1 var
+R27328:27329 Lists <> l2 var
+R27334:27334 Lists NatList ::x_'++'_x not
+R27341:27346 Lists NatList ::x_'++'_x not
+R27353:27353 Lists NatList ::x_'++'_x not
+R27335:27337 Lists NatList rev def
+R27339:27340 Lists <> l2 var
+R27347:27349 Lists NatList rev def
+R27351:27352 Lists <> l1 var
+R27435:27445 Lists NatList app_nil_end thm
+R27435:27445 Lists NatList app_nil_end thm
+R27517:27527 Lists NatList snoc_append thm
+R27517:27527 Lists NatList snoc_append thm
+R27541:27551 Lists NatList snoc_append thm
+R27541:27551 Lists NatList snoc_append thm
+R27565:27571 Lists NatList app_ass thm
+R27565:27571 Lists NatList app_ass thm
+prf 27659:27673 NatList nonzeros_length
+R27692:27698 Lists NatList natlist ind
+R27722:27724 Coq.Init.Logic <> :type_scope:x_'='_x not
+R27703:27710 Lists NatList nonzeros def
+R27715:27718 Lists NatList ::x_'++'_x not
+R27713:27714 Lists <> l1 var
+R27719:27720 Lists <> l2 var
+R27725:27725 Lists NatList ::x_'++'_x not
+R27737:27742 Lists NatList ::x_'++'_x not
+R27754:27754 Lists NatList ::x_'++'_x not
+R27726:27733 Lists NatList nonzeros def
+R27735:27736 Lists <> l1 var
+R27743:27750 Lists NatList nonzeros def
+R27752:27753 Lists <> l2 var
+prf 28528:28547 NatList count_member_nonzero
+R28563:28565 Lists NatList bag def
+R28599:28601 Coq.Init.Logic <> :type_scope:x_'='_x not
+R28571:28577 Basics <> ble_nat def
+R28582:28586 Lists NatList count def
+R28592:28595 Lists NatList ::x_'::'_x not
+R28596:28596 Lists <> s var
+R28602:28605 Basics <> true constr
+prf 28733:28740 NatList ble_n_Sn
+R28771:28773 Coq.Init.Logic <> :type_scope:x_'='_x not
+R28756:28762 Basics <> ble_nat def
+R28767:28767 Coq.Init.Datatypes <> S constr
+R28769:28769 Lists <> n var
+R28764:28764 Lists <> n var
+R28774:28777 Basics <> true constr
+prf 28931:28952 NatList remove_decreases_count
+R28967:28969 Lists NatList bag def
+R29021:29023 Coq.Init.Logic <> :type_scope:x_'='_x not
+R28975:28981 Basics <> ble_nat def
+R29011:29015 Lists NatList count def
+R29019:29019 Lists <> s var
+R28984:28988 Lists NatList count def
+R28993:29002 Lists NatList remove_one def
+R29006:29006 Lists <> s var
+R29024:29027 Basics <> true constr
+ind 29729:29737 NatList natoption
+constr 29753:29756 NatList Some
+constr 29781:29784 NatList None
+R29767:29775 Lists <> natoption ind
+R29760:29762 Coq.Init.Datatypes <> nat ind
+R29788:29796 Lists <> natoption ind
+def 30119:30127 NatList index_bad
+R30132:30134 Coq.Init.Datatypes <> nat ind
+R30140:30146 Lists NatList natlist ind
+R30151:30153 Coq.Init.Datatypes <> nat ind
+R30166:30166 Lists <> l var
+R30177:30179 Lists NatList nil constr
+R30210:30213 Lists NatList ::x_'::'_x not
+R30226:30232 Basics <> beq_nat def
+R30236:30236 Coq.Init.Datatypes <> O constr
+R30234:30234 Lists <> n var
+R30261:30264 Basics <> true constr
+R30289:30293 Basics <> false constr
+R30298:30306 Lists <> index_bad def
+R30309:30312 Coq.Init.Peano <> pred def
+R30314:30314 Lists <> n var
+def 30578:30582 NatList index
+R30587:30589 Coq.Init.Datatypes <> nat ind
+R30595:30601 Lists NatList natlist ind
+R30606:30614 Lists NatList natoption ind
+R30627:30627 Lists <> l var
+R30638:30640 Lists NatList nil constr
+R30645:30648 Lists NatList None constr
+R30656:30659 Lists NatList ::x_'::'_x not
+R30672:30678 Basics <> beq_nat def
+R30682:30682 Coq.Init.Datatypes <> O constr
+R30680:30680 Lists <> n var
+R30707:30710 Basics <> true constr
+R30715:30718 Lists NatList Some constr
+R30739:30743 Basics <> false constr
+R30748:30752 Lists <> index def
+R30755:30758 Coq.Init.Peano <> pred def
+R30760:30760 Lists <> n var
+def 30802:30812 NatList test_index1
+R30836:30839 Coq.Init.Logic <> :type_scope:x_'='_x not
+R30819:30823 Lists NatList index def
+R30827:30827 Lists NatList ::'['_x_','_'..'_','_x_']' not
+R30829:30829 Lists NatList ::'['_x_','_'..'_','_x_']' not
+R30831:30831 Lists NatList ::'['_x_','_'..'_','_x_']' not
+R30833:30833 Lists NatList ::'['_x_','_'..'_','_x_']' not
+R30835:30835 Lists NatList ::'['_x_','_'..'_','_x_']' not
+R30840:30843 Lists NatList Some constr
+def 30882:30892 NatList test_index2
+R30916:30919 Coq.Init.Logic <> :type_scope:x_'='_x not
+R30899:30903 Lists NatList index def
+R30907:30907 Lists NatList ::'['_x_','_'..'_','_x_']' not
+R30909:30909 Lists NatList ::'['_x_','_'..'_','_x_']' not
+R30911:30911 Lists NatList ::'['_x_','_'..'_','_x_']' not
+R30913:30913 Lists NatList ::'['_x_','_'..'_','_x_']' not
+R30915:30915 Lists NatList ::'['_x_','_'..'_','_x_']' not
+R30920:30923 Lists NatList Some constr
+def 30962:30972 NatList test_index3
+R30997:30999 Coq.Init.Logic <> :type_scope:x_'='_x not
+R30979:30983 Lists NatList index def
+R30988:30988 Lists NatList ::'['_x_','_'..'_','_x_']' not
+R30990:30990 Lists NatList ::'['_x_','_'..'_','_x_']' not
+R30992:30992 Lists NatList ::'['_x_','_'..'_','_x_']' not
+R30994:30994 Lists NatList ::'['_x_','_'..'_','_x_']' not
+R30996:30996 Lists NatList ::'['_x_','_'..'_','_x_']' not
+R31000:31003 Lists NatList None constr
+def 31188:31193 NatList index'
+R31198:31200 Coq.Init.Datatypes <> nat ind
+R31206:31212 Lists NatList natlist ind
+R31217:31225 Lists NatList natoption ind
+R31238:31238 Lists <> l var
+R31249:31251 Lists NatList nil constr
+R31256:31259 Lists NatList None constr
+R31267:31270 Lists NatList ::x_'::'_x not
+R31280:31286 Basics <> beq_nat def
+R31290:31290 Coq.Init.Datatypes <> O constr
+R31288:31288 Lists <> n var
+R31309:31314 Lists <> index' def
+R31317:31320 Coq.Init.Peano <> pred def
+R31322:31322 Lists <> n var
+R31297:31300 Lists NatList Some constr
+def 31893:31903 NatList option_elim
+R31910:31912 Coq.Init.Datatypes <> nat ind
+R31920:31928 Lists NatList natoption ind
+R31933:31935 Coq.Init.Datatypes <> nat ind
+R31948:31948 Lists <> o var
+R31959:31962 Lists NatList Some constr
+R31977:31980 Lists NatList None constr
+R31985:31985 Lists <> d var
+def 32176:32181 NatList hd_opt
+R32188:32194 Lists NatList natlist ind
+R32199:32207 Lists NatList natoption ind
+R32212:32216 Lists NatList index def
+R32220:32220 Lists <> l var
+def 32232:32243 NatList test_hd_opt1
+R32256:32258 Coq.Init.Logic <> :type_scope:x_'='_x not
+R32247:32252 Lists NatList hd_opt def
+R32254:32255 Lists NatList ::'['_']' not
+R32259:32262 Lists NatList None constr
+def 32299:32310 NatList test_hd_opt2
+R32324:32326 Coq.Init.Logic <> :type_scope:x_'='_x not
+R32314:32319 Lists NatList hd_opt def
+R32321:32321 Lists NatList ::'['_x_','_'..'_','_x_']' not
+R32323:32323 Lists NatList ::'['_x_','_'..'_','_x_']' not
+R32327:32330 Lists NatList Some constr
+def 32369:32380 NatList test_hd_opt3
+R32396:32398 Coq.Init.Logic <> :type_scope:x_'='_x not
+R32384:32389 Lists NatList hd_opt def
+R32391:32391 Lists NatList ::'['_x_','_'..'_','_x_']' not
+R32393:32393 Lists NatList ::'['_x_','_'..'_','_x_']' not
+R32395:32395 Lists NatList ::'['_x_','_'..'_','_x_']' not
+R32399:32402 Lists NatList Some constr
+prf 32572:32585 NatList option_elim_hd
+R32599:32605 Lists NatList natlist ind
+R32617:32619 Coq.Init.Datatypes <> nat ind
+R32637:32639 Coq.Init.Logic <> :type_scope:x_'='_x not
+R32625:32626 Lists NatList hd def
+R32636:32636 Lists <> l var
+R32628:32634 Lists <> default var
+R32640:32650 Lists NatList option_elim def
+R32661:32666 Lists NatList hd_opt def
+R32668:32668 Lists <> l var
+R32652:32658 Lists <> default var
+def 32954:32964 NatList beq_natlist
+R32975:32981 Lists NatList natlist ind
+R32986:32989 Basics <> bool ind
+R33006:33007 Lists <> l2 var
+R33002:33003 Lists <> l1 var
+R33022:33024 Lists NatList nil constr
+R33027:33029 Lists NatList nil constr
+R33034:33037 Basics <> true constr
+R33047:33049 Lists NatList nil constr
+R33053:33054 Lists NatList ::x_'::'_x not
+R33062:33066 Basics <> false constr
+R33077:33078 Lists NatList ::x_'::'_x not
+R33084:33086 Lists NatList nil constr
+R33091:33095 Basics <> false constr
+R33106:33107 Lists NatList ::x_'::'_x not
+R33114:33115 Lists NatList ::x_'::'_x not
+R33126:33132 Basics <> beq_nat def
+R33168:33172 Basics <> false constr
+R33143:33153 Lists <> beq_natlist def
+def 33190:33206 NatList test_beq_natlist1
+R33232:33234 Coq.Init.Logic <> :type_scope:x_'='_x not
+R33213:33223 Lists NatList beq_natlist def
+R33229:33231 Lists NatList nil constr
+R33225:33227 Lists NatList nil constr
+R33235:33238 Basics <> true constr
+def 33275:33291 NatList test_beq_natlist2
+R33324:33326 Coq.Init.Logic <> :type_scope:x_'='_x not
+R33297:33307 Lists NatList beq_natlist def
+R33317:33317 Lists NatList ::'['_x_','_'..'_','_x_']' not
+R33319:33319 Lists NatList ::'['_x_','_'..'_','_x_']' not
+R33321:33321 Lists NatList ::'['_x_','_'..'_','_x_']' not
+R33323:33323 Lists NatList ::'['_x_','_'..'_','_x_']' not
+R33309:33309 Lists NatList ::'['_x_','_'..'_','_x_']' not
+R33311:33311 Lists NatList ::'['_x_','_'..'_','_x_']' not
+R33313:33313 Lists NatList ::'['_x_','_'..'_','_x_']' not
+R33315:33315 Lists NatList ::'['_x_','_'..'_','_x_']' not
+R33327:33330 Basics <> true constr
+def 33366:33382 NatList test_beq_natlist3
+R33415:33417 Coq.Init.Logic <> :type_scope:x_'='_x not
+R33388:33398 Lists NatList beq_natlist def
+R33408:33408 Lists NatList ::'['_x_','_'..'_','_x_']' not
+R33410:33410 Lists NatList ::'['_x_','_'..'_','_x_']' not
+R33412:33412 Lists NatList ::'['_x_','_'..'_','_x_']' not
+R33414:33414 Lists NatList ::'['_x_','_'..'_','_x_']' not
+R33400:33400 Lists NatList ::'['_x_','_'..'_','_x_']' not
+R33402:33402 Lists NatList ::'['_x_','_'..'_','_x_']' not
+R33404:33404 Lists NatList ::'['_x_','_'..'_','_x_']' not
+R33406:33406 Lists NatList ::'['_x_','_'..'_','_x_']' not
+R33418:33422 Basics <> false constr
+prf 33460:33471 NatList beq_nat_refl
+R33484:33486 Coq.Init.Datatypes <> nat ind
+R33502:33504 Coq.Init.Logic <> :type_scope:x_'='_x not
+R33491:33497 Basics <> beq_nat def
+R33501:33501 Lists <> h var
+R33499:33499 Lists <> h var
+R33505:33508 Basics <> true constr
+prf 33646:33661 NatList beq_natlist_refl
+R33674:33680 Lists NatList natlist ind
+R33689:33691 Coq.Init.Logic <> :type_scope:x_'='_x not
+R33685:33688 Basics <> true constr
+R33692:33702 Lists NatList beq_natlist def
+R33706:33706 Lists <> l var
+R33704:33704 Lists <> l var
+R33819:33830 Lists NatList beq_nat_refl thm
+R33819:33830 Lists NatList beq_nat_refl thm
+mod 34299:34308 <> NatList.Dictionary
+ind 34322:34331 NatList.Dictionary dictionary
+constr 34347:34351 NatList.Dictionary empty
+constr 34372:34377 NatList.Dictionary record
+R34356:34365 Lists <> dictionary ind
+R34409:34418 Lists <> dictionary ind
+R34395:34404 Lists <> dictionary ind
+R34388:34390 Coq.Init.Datatypes <> nat ind
+R34381:34383 Coq.Init.Datatypes <> nat ind
+def 34766:34771 NatList.Dictionary insert
+R34786:34788 Coq.Init.Datatypes <> nat ind
+R34796:34805 Lists NatList.Dictionary dictionary ind
+R34810:34819 Lists NatList.Dictionary dictionary ind
+R34827:34832 Lists NatList.Dictionary record constr
+R34844:34844 Lists <> d var
+R34838:34842 Lists <> value var
+R34834:34836 Lists <> key var
+def 35167:35170 NatList.Dictionary find
+R35179:35181 Coq.Init.Datatypes <> nat ind
+R35189:35198 Lists NatList.Dictionary dictionary ind
+R35203:35211 Lists NatList.Dictionary natoption ind
+R35225:35225 Lists <> d var
+R35237:35241 Lists NatList.Dictionary empty constr
+R35254:35257 Lists NatList.Dictionary None constr
+R35263:35268 Lists NatList.Dictionary record constr
+R35284:35290 Basics <> beq_nat def
+R35292:35294 Lists <> key var
+R35319:35322 Lists <> find def
+R35324:35326 Lists <> key var
+R35305:35308 Lists NatList.Dictionary Some constr
+prf 35439:35459 NatList.Dictionary dictionary_invariant1
+R35475:35484 Lists NatList.Dictionary dictionary ind
+R35493:35495 Coq.Init.Datatypes <> nat ind
+R35501:35501 Coq.Init.Logic <> :type_scope:x_'='_x not
+R35523:35526 Coq.Init.Logic <> :type_scope:x_'='_x not
+R35502:35505 Lists NatList.Dictionary find def
+R35510:35515 Lists NatList.Dictionary insert def
+R35521:35521 Lists <> d var
+R35519:35519 Lists <> v var
+R35517:35517 Lists <> k var
+R35507:35507 Lists <> k var
+R35527:35530 Lists NatList.Dictionary Some constr
+R35532:35532 Lists <> v var
+R35568:35579 Lists NatList.Dictionary beq_nat_refl thm
+R35568:35579 Lists NatList.Dictionary beq_nat_refl thm
+prf 35710:35730 NatList.Dictionary dictionary_invariant2
+R35746:35755 Lists NatList.Dictionary dictionary ind
+R35766:35768 Coq.Init.Datatypes <> nat ind
+R35799:35799 Coq.Init.Logic <> :type_scope:x_'='_x not
+R35808:35812 Coq.Init.Logic <> :type_scope:x_'='_x not
+R35834:35834 Coq.Init.Logic <> :type_scope:x_'='_x not
+R35800:35803 Lists NatList.Dictionary find def
+R35807:35807 Lists <> d var
+R35805:35805 Lists <> m var
+R35813:35816 Lists NatList.Dictionary find def
+R35821:35826 Lists NatList.Dictionary insert def
+R35832:35832 Lists <> d var
+R35830:35830 Lists <> o var
+R35828:35828 Lists <> n var
+R35818:35818 Lists <> m var
+R35774:35774 Coq.Init.Logic <> :type_scope:x_'='_x not
+R35786:35789 Coq.Init.Logic <> :type_scope:x_'='_x not
+R35775:35781 Basics <> beq_nat def
+R35785:35785 Lists <> n var
+R35783:35783 Lists <> m var
+R35790:35794 Basics <> false constr
+R35907:35916 Lists Dictionary <> mod
+R35924:35930 Lists <> <> mod
