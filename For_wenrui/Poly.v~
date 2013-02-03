@@ -508,19 +508,16 @@ Fixpoint combine' {X Y : Type} (lx : list X) (ly : list Y)
     [split].  Make sure it passes the given unit tests. *)
 
 
-Fixpoint split {X Y : Type} (l : list (X * Y)) : (list X)*(list Y) :=
+Fixpoint split {X Y : Type} (l : list (X*Y)) : (list X)*(list Y) :=
 match l with 
- | [] => []
- | (x, y) :: tl => match split tl with lx * ly => (x :: lx, y :: ly) 
+ | [] => ([], [])
+ | (x, y) :: tl => match split tl with (lx, ly) => (x :: lx, y :: ly) 
 end
 end.
 
 Example test_split:
   split [(1,false),(2,false)] = ([1,2],[false,false]).
 Proof. reflexivity.  Qed.
-
-
-
 
 (** (If you're reading the HTML version of this file, note that
     there's an unresolved typesetting problem in the example: several
@@ -1279,8 +1276,6 @@ Proof. reflexivity. Qed.
 (** Exponentiation *)
 
 (** Hint: polymorphism plays a crucial role here. *)
-
-(* A helper function *)
 
 Definition exp (n m : nat) : nat := 
 fun (X : Type) (f : X -> X) (x : X) =>  (m (X -> X) (n X) f) x.

@@ -1,3 +1,5 @@
+(* Zhiwei Wu : 6 hours
+   Wenrui Meng : 5 hours *)
 (** * Poly: Polymorphism and Higher-Order Functions *)
 
 (** In this chapter we continue our development of basic 
