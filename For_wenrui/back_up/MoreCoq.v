@@ -219,7 +219,7 @@ Proof.
   intros m eq2. induction  m as [| m'].
     SCase "m = 0".  inversion eq2.
     SCase "m = S m'".  
-    inversion eq2.
+    inversion eq2. 
     rewrite <- plus_n_Sm in H0.
     symmetry in H0.
     rewrite <- plus_n_Sm in H0.
@@ -611,24 +611,13 @@ Case "beq nat k1 k2 = false".  reflexivity. Qed.
 (** Remove the comment brackets (needed because [split] was defined in 
     a previous exercise) and complete the proof. *)
 
-Print combine.
+(* 
 Theorem combine_split : forall X Y (l : list (X * Y)) l1 l2,
   split l = (l1, l2) ->
   combine l1 l2 = l.
 Proof.
-intros X Y l. induction l as [| (x,y) l'].
-Case "l = []". intros. simpl in H. inversion H. reflexivity.
-Case "l = (x,y) :: l'". 
-intros l1 l2 H. unfold combine.
-unfold split in H. inversion H.
-Admitted.
-
-
-  (* FILL IN HERE *)
-
-
-
-
+  (* FILL IN HERE *) Admitted.
+*)
 (** [] *)
 
 (** **** Exercise: 3 stars, advanced (split_combine) *)
@@ -640,16 +629,7 @@ Admitted.
     your induction hypothesis general by not doing [intros] on more
     things than necessary.  Hint: what property do you need of [l1]
     and [l2] for [split] [combine l1 l2 = (l1,l2)] to be true?) *)
-Theorem split_combine : forall X Y (l : list (X * Y)) l1 l2,
-  combine l1 l2 = l ->
-  split l = (l1, l2).
-Proof. 
-Print split.
-intros X Y l. induction l as [ | (x1, x2) l'].
-Case "l = nil". intros l1.   induction l1 as [ | h l1'].
-  SCase " l1 = nil ".  
- (*need assumption lenght l1 = lenght l2 *)
-Admitted.
+
 (* FILL IN HERE *) 
 (** [] *)
 
@@ -708,7 +688,7 @@ Theorem sillyfun1_odd : forall (n : nat),
      oddb n = true.
 Proof.
   intros n eq. unfold sillyfun1 in eq.
-   remember (beq_nat n 3) as e3.
+  remember (beq_nat n 3) as e3.
   (* At this point, the context has been enriched with a new
      variable [e3] and an assumption that [e3 = beq_nat n 3].
      Now if we do [destruct e3]... *)
@@ -737,25 +717,7 @@ Theorem bool_fn_applied_thrice :
   forall (f : bool -> bool) (b : bool), 
   f (f (f b)) = f b.
 Proof.
-intros. remember (f b) as f1.
-destruct f1.
-Case "f1 = true". remember (f true) as f2.
-   destruct f2.
-   SCase "f2 = true". symmetry in Heqf2. apply Heqf2.
-   SCase "f2 = false". destruct b. 
-      SSCase "b = true". rewrite <- Heqf1 in Heqf2. inversion Heqf2.
-      SSCase "b = false". symmetry in Heqf1. apply Heqf1.
-
-Case "f1 = false". remember (f false) as f3.
-   destruct f3.  
-   SCase "f2 = true". destruct b.
-      SSCase "b = true". symmetry in Heqf1. apply Heqf1.
-      SSCase "b = false". rewrite <- Heqf1 in Heqf3. inversion Heqf3.
-   SCase "f2 = false". symmetry in Heqf3. apply Heqf3.
-Qed.
-
-
-  (* FILL IN HERE *) 
+  (* FILL IN HERE *) Admitted.
 (** [] *)
 
 (** **** Exercise: 2 stars (override_same) *)
@@ -763,15 +725,7 @@ Theorem override_same : forall {X:Type} x1 k1 k2 (f : nat->X),
   f k1 = x1 -> 
   (override f k1 x1) k2 = f k2.
 Proof.
-intros. unfold override. 
-remember (beq_nat k1 k2) as b1.
-destruct b1.
-   Case "b1 = true". apply beq_nat_eq in Heqb1.
-   rewrite <- H. rewrite <- Heqb1. reflexivity.
-   Case "b1 = false". reflexivity. 
-Qed.
-
-  (* FILL IN HERE *) 
+  (* FILL IN HERE *) Admitted.
 (** [] *)
 
 (* ###################################################### *)
@@ -816,7 +770,7 @@ Proof.
      instantiation for [m]: we have to supply one explicitly
      by adding [with (m:=[c,d])] to the invocation of
      [apply]. *)
-   apply trans_eq with (m:=[c,d]). apply eq1. apply eq2.   Qed.
+  apply trans_eq with (m:=[c,d]). apply eq1. apply eq2.   Qed.
 
 (**  Actually, we usually don't have to include the name [m]
     in the [with] clause; Coq is often smart enough to
@@ -828,22 +782,7 @@ Theorem override_permute : forall {X:Type} x1 x2 k1 k2 k3 (f : nat->X),
   false = beq_nat k2 k1 ->
   (override (override f k2 x2) k1 x1) k3 = (override (override f k1 x1) k2 x2) k3.
 Proof.
-  intros X x1 x2 k1 k2 k3 f H. remember (beq_nat k1 k3) as b1. 
-  remember (beq_nat k2 k3) as b2.  
-destruct b1.
-  Case "k1 = k3".
-     destruct b2.  
-     SCase "k2 = k3".
-     apply beq_nat_eq with (n:= k1) (m:= k3) in Heqb1. 
-     apply beq_nat_eq with (n:= k2) (m:= k3) in Heqb2.
-     rewrite -> Heqb1 in H. rewrite -> Heqb2 in H. 
-     symmetry in H. rewrite <- beq_nat_refl in H. inversion H.
-     SCase "k2 != k3". 
-     unfold override. rewrite <- Heqb1. rewrite <- Heqb2. reflexivity. 
-  Case "k1 != k3".
-     unfold override. rewrite <- Heqb1. reflexivity. Qed.
-
-
+  (* FILL IN HERE *) Admitted.
 (** [] *)
 
 (** **** Exercise: 3 stars, optional (apply_with_exercise1) *)
@@ -946,17 +885,7 @@ Proof.
 Theorem beq_nat_sym : forall (n m : nat),
   beq_nat n m = beq_nat m n.
 Proof.
-  intros n m. remember (beq_nat n m) as b1. destruct b1.
-  Case "n = m". apply beq_nat_eq in Heqb1. rewrite <- Heqb1.
-  apply beq_nat_refl.  
-
-  Case "n != m".
-  remember (beq_nat m n) as b2. destruct b2.
-    SCase " m = n".
-    apply beq_nat_eq in Heqb2. rewrite <- Heqb2 in Heqb1. 
-    rewrite <- beq_nat_refl in Heqb1. inversion Heqb1.
-     SCase " m != n". reflexivity. Qed.
-
+  (* FILL IN HERE *) Admitted.
 (** [] *)
 
 (** **** Exercise: 3 stars, advanced, optional (beq_nat_sym_informal) *)
@@ -978,19 +907,7 @@ Theorem filter_exercise : forall (X : Type) (test : X -> bool)
      filter test l = x :: lf ->
      test x = true.
 Proof.
-intros X test x l.
-induction l as [| h l'].
-Case "l = []". intros lf H. inversion H.
-Case "l = h :: l'". 
-remember (test h) as b.
-destruct b.
-  SCase "b = true". simpl. symmetry in Heqb. rewrite -> Heqb.
-  intros lf H1. inversion H1. rewrite <- H0. apply Heqb.
-  SCase "b = false". simpl. symmetry in Heqb. rewrite -> Heqb.
-  apply IHl'.
-Qed.
-
-
+  (* FILL IN HERE *) Admitted.
 (** [] *)
 
 (** **** Exercise: 4 stars, advanced (forall_exists_challenge) *)
@@ -1019,40 +936,6 @@ Qed.
     Prove that [existsb'] and [existsb] have the same behavior.
 *)
 
-Fixpoint forallb {X : Type} (test : X -> bool) (l : list X) : bool := 
-match l with 
-| nil => true
-| h :: l' => if test h then (forallb  test l') else false
-end.
-
-Fixpoint existsb {X : Type} (test : X -> bool) (l : list X) : bool :=
-match l with 
-| nil => false
-| h :: l' => if test h then true else existsb test l'
-end.
-
-Definition existsb' {X : Type} (test : X -> bool) (l : list X) : bool :=
-negb (forallb (fun (x : X) => (negb (test x))) l).
-
-
-
-Check ( existsb' (beq_nat 5) [0,2,3,6]).
-Check existsb (beq_nat 5) [0,2,3,6].
-Eval simpl in (forallb evenb [0,2,3,4]).
-Eval simpl in existsb (andb true) [true,true,false].
-
-Theorem forall_exists : forall (X : Type) (test : X -> bool) (l : list X),
-   existsb test l = existsb' test l.
-Proof.
-intros.
-induction l as [| h l'].
-Case "l = []".
-simpl. unfold existsb'. simpl. reflexivity.
-Case "l = h :: l'". simpl.
-remember (test h) as t. destruct t.
-   SCase "t = true". unfold existsb'. simpl. rewrite <- Heqt. reflexivity.
-   SCase "t = false". unfold existsb'. simpl. rewrite <- Heqt. simpl.
-                      unfold existsb' in IHl'. apply IHl'. Qed.
 (* FILL IN HERE *)
 (** [] *)
 

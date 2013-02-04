@@ -164,8 +164,8 @@ Proof.
 Theorem S_inj : forall (n m : nat) (b : bool),
      beq_nat (S n) (S m) = b  ->
      beq_nat n m = b. 
-Proof.
-  intros n m b H. simpl in H. apply H.  Qed.
+Proof. 
+  intros n m b H. simpl in H. apply H.  Qed. 
 
 (** Similarly, the tactic [apply L in H] matches some
     conditional statement [L] (of the form [L1 -> L2], say) against a
@@ -191,7 +191,7 @@ Proof.
   intros n eq H.
   symmetry in H. apply eq in H. symmetry in H. 
   apply H.  Qed.
-
+ 
 (** Forward reasoning starts from what is _given_ (premises,
     previously proven theorems) and iteratively draws conclusions from
     them until the goal is reached.  Backward reasoning starts from
@@ -217,7 +217,11 @@ Proof.
     SCase "m = S m'". inversion eq1.
   Case "n = S n'".
   intros m eq2. destruct m.
-  
+    SCase "m = 0". inversion eq2.
+    SCase "m = S m'". inversion eq2.
+    rewrite <- plus_n_Sm in H0.
+    symmetry in H0. rewrite <- plus_n_Sm in H0. inversion H0.
+    symmetry in H1. apply IHn' in H1. rewrite H1. reflexivity.
     (* Hint: use the plus_n_Sm lemma *)
     (* FILL IN HERE *) Admitted.
 (** [] *)

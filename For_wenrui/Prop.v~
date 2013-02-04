@@ -223,7 +223,7 @@ Qed.
 
 Theorem eight_is_beautiful'': beautiful 8.
 Proof.
-   Show Proof.  
+   Show Proof.
    apply b_sum with (n:=3) (m:=5).
    Show Proof.
    apply b_3.
@@ -290,10 +290,10 @@ b_sum 3 3 b_3 b_3.
 Theorem nine_is_beautiful :
   beautiful 9.
 Proof.
-apply (b_sum 6 3 six_is_beautiful' b_3).
-Qed.
+  (* FILL IN HERE *) Admitted.
+
 Definition nine_is_beautiful' : beautiful 9 :=
-b_sum 6 3 six_is_beautiful' b_3.
+  (* FILL IN HERE *) admit.
 (** [] *)
 
 
