@@ -398,7 +398,41 @@ Case " n = S n' ". destruct  m.
     as possible about quantifiers. *)
 
 (* FILL IN HERE *)
-(** [] *)
+(** _Theorem_: For any nats [n] and [m], if [beq_nat n m = true], then
+  [n = m].
+
+_Proof_: Let [n] be a [nat]. We prove by induction on [n] that, for
+  any [m], if [beq_nat n m = true] then [n = m].
+
+  - First, suppose [n = 0], and suppose [m] is a number such
+    that [beq_nat 0 m = true].  We must show that [m = 0].
+
+    Since [n = 0],there are two cases to consider for [m].  
+    If [m = 0] we are done, since this is what we wanted to show.  
+    Otherwise, if [n = S n'] for some [n'], we derive a contradiction: 
+    by the definition of [beq_nat] we would have [n = S (m')], but this
+    contradicts the assumption that [double n = 0].
+
+  - Otherwise, suppose [n = S n'] and that [m] is again a number such
+    that [beq_nat n m = 0].  We must show that [m = S n'], with
+    the induction hypothesis that for every number [s], if [beq_nat s =
+    n'] then [s = n'].
+ 
+    By the fact that [n = S n'] and the definition of [beq_nat], we
+    have [beq_nat (S n') m = true].  There are two cases to
+    consider for [m].
+
+    If [m = 0], then by definition [beq_nat (S n') 0 = true], 
+    a contradiction was derived.
+    Thus, we may assume that [m = S m'] for some [m'], and again by
+    the definition of [beq_nat] we have [beq_nat (S n') (S m') = true],
+    which implies by inversion that [beq_nat n' m' = true].
+
+    Instantiating the induction hypothesis with [n'] thus allows us to
+    conclude that [n' = m'], and it follows immediately that [S n' = S
+    m'].  Since [S n' = n] and [S m' = m], then we get [n = m]. 
+[] *)
+
 
 
 (** The strategy of doing fewer [intros] before an [induction] doesn't
@@ -640,16 +674,39 @@ Admitted.
     your induction hypothesis general by not doing [intros] on more
     things than necessary.  Hint: what property do you need of [l1]
     and [l2] for [split] [combine l1 l2 = (l1,l2)] to be true?) *)
+Theorem length_zero : forall X (l: list X), 
+   length l = 0 -> l = [].
+Proof. intros. induction l as [ | h l'].
+Case " l = [] ". reflexivity. 
+Case " l = h::l' ". simpl in H. inversion H. Qed.
 Theorem split_combine : forall X Y (l : list (X * Y)) l1 l2,
+  length l1 = length l2 ->
   combine l1 l2 = l ->
   split l = (l1, l2).
 Proof. 
-Print split.
-intros X Y l. induction l as [ | (x1, x2) l'].
-Case "l = nil". intros l1.   induction l1 as [ | h l1'].
-  SCase " l1 = nil ".  
- (*need assumption lenght l1 = lenght l2 *)
-Admitted.
+intros X Y l l1 l2 length_eq.
+generalize dependent l2. generalize dependent l1. 
+induction l as [ | (x1, x2) l'].
+Case "l = nil".    induction l1 as [ | h l1']. 
+  SCase " l1 = nil ". intros l2 length_eq1. 
+  simpl in length_eq1. symmetry in length_eq1. 
+  apply length_zero in length_eq1.  rewrite length_eq1.  reflexivity.
+  SCase " l1 = h::l1' ". intros l2 length_eq2. simpl in length_eq2.
+  induction l2 as [ | h2 l2']. 
+    SSCase " l2 = [] ".  inversion length_eq2.
+    SSCase " l2 = h2::l2' ". simpl. intro. inversion H.
+Case " l = (x1, x2)::l' ". induction l1 as [| h1 l1'].
+  SCase "l1 = [] ". intros l2 length_eq1. 
+  intro. simpl in H. inversion H.
+  SCase " l1 = h1::l1' ".   induction l2 as [ | h2 l2'].
+     SSCase " l2 = [] ".  intro length_eq2. 
+     simpl in length_eq2. inversion length_eq2.
+     SSCase " l2 = h2::l2' ". intro length_eq2. simpl in length_eq2. inversion length_eq2.
+     intro. simpl in H.   inversion H. rewrite <- H2. rewrite <- H3. rewrite H4.
+     simpl. apply IHl' in H4. rewrite  H4. reflexivity. apply H0. 
+Qed.
+
+
 (* FILL IN HERE *) 
 (** [] *)
 

@@ -93,7 +93,7 @@ Require Export MoreCoq.
 (** **** Exercise: 1 star (varieties_of_beauty) *)
 (** How many different ways are there to show that [8] is [beautiful]? *)
 
-(* FILL IN HERE *)
+(* Infinitely many  *)
 (** [] *)
 
 (** In Coq, we can express the definition of [beautiful] as
@@ -329,7 +329,7 @@ Qed.
 Definition b_plus3' : forall n, beautiful n -> beautiful (3+n) := 
   fun n => fun H : beautiful n =>
     b_sum 3 n b_3 H.
-
+(*?????*)
 Check b_plus3'.
 (* ===> b_plus3' : forall n, beautiful n -> beautiful (3+n) *)
 
@@ -345,19 +345,22 @@ Check b_plus3''.
 (** **** Exercise: 2 stars (b_times2) *)
 Theorem b_times2: forall n, beautiful n -> beautiful (2*n).
 Proof.
-    (* FILL IN HERE *) Admitted.
+intros . simpl.  apply b_sum. apply H. apply b_sum. apply H. apply b_0. Qed.
 (** [] *)
 
 (** **** Exercise: 3 stars, optional (b_times2') *)
 (** Write a proof object corresponding to [b_times2] above *)
 
 Definition b_times2': forall n, beautiful n -> beautiful (2*n) :=
-  (* FILL IN HERE *) admit.
+fun n => fun H : beautiful n => 
+b_sum n (n+ 0) H (b_sum n 0 H b_0).
 
 (** **** Exercise: 2 stars (b_timesm) *)
 Theorem b_timesm: forall n m, beautiful n -> beautiful (m*n).
 Proof.
-   (* FILL IN HERE *) Admitted.
+intros. induction m as [ | m'].
+Case " m = 0 ".  simpl.  apply b_0.
+Case " m = S m' ". simpl. apply b_sum. apply H. apply IHm'.  Qed.
 (** [] *)
 
 (* ####################################################### *)
@@ -404,7 +407,22 @@ Inductive gorgeous : nat -> Prop :=
 (** Write out the definition of [gorgeous] numbers using inference rule
     notation.
  
-(* FILL IN HERE *)
+(* 
+------------
+gorgeous 0
+
+
+gorgeous n
+----------------
+gorgeous (3 + n)
+
+
+gorgeous n
+----------------
+gorgeous (5 + n)
+
+
+ *)
 []
 *)
 
@@ -420,7 +438,7 @@ Proof.
    induction H as [|n'|n'].
    Case "g_0".
        apply b_0.
-   Case "g_plus3". 
+   Case "g_plus3".  
        apply b_sum. apply b_3.
        apply IHgorgeous.
    Case "g_plus5".
@@ -453,8 +471,15 @@ Admitted.
 (** **** Exercise: 1 star (gorgeous_plus13) *)
 Theorem gorgeous_plus13: forall n, 
   gorgeous n -> gorgeous (13+n).
-Proof.
-   (* FILL IN HERE *) Admitted.
+Proof. 
+intros. induction H as [ | n1 | n2].
+Case " g_0 ". 
+simpl. apply g_plus3. apply  g_plus5. apply  g_plus5.  apply g_0.
+Case " g_plus3 ".    
+rewrite plus_comm.  rewrite <- plus_assoc.  apply g_plus3.  rewrite plus_comm. apply IHgorgeous. 
+Case " g_plus5 ".   
+rewrite plus_comm. rewrite <- plus_assoc.  apply g_plus5.  rewrite plus_comm. apply IHgorgeous.
+Qed. 
 (** [] *)
 
 (** **** Exercise: 2 stars, optional (gorgeous_plus13_po):
@@ -468,13 +493,32 @@ Definition gorgeous_plus13_po: forall n, gorgeous n -> gorgeous (13+n):=
 Theorem gorgeous_sum : forall n m,
   gorgeous n -> gorgeous m -> gorgeous (n + m).
 Proof.
- (* FILL IN HERE *) Admitted.
+intros. induction H as [|n' |n'].
+Case "g_0".
+simpl. apply H0.
+Case "g_plus3".
+rewrite <- plus_assoc. apply g_plus3. apply IHgorgeous.
+Case "g_plus5".
+rewrite <- plus_assoc. apply g_plus5. apply IHgorgeous.
+Qed.
+ (* FILL IN HERE *) 
 (** [] *)
 
 (** **** Exercise: 3 stars, advanced (beautiful__gorgeous) *)
 Theorem beautiful__gorgeous : forall n, beautiful n -> gorgeous n.
 Proof.
- (* FILL IN HERE *) Admitted.
+intros. induction H as [|  |  |m' n'].
+Case "b_0".
+apply g_0.
+Case "b_3".
+assert (3 = 3 + 0) as H1. reflexivity.
+rewrite -> H1. apply g_plus3 with (n:=0). apply g_0.
+Case "b_5".
+assert (5 = 5 + 0) as H2. reflexivity.
+rewrite -> H2. apply g_plus5 with (n:=0). apply g_0.
+Case "b_sum". apply gorgeous_sum with (n:=m') (m:=n'). apply IHbeautiful1. apply IHbeautiful2.
+Qed.
+
 (** [] *)
 
 (** **** Exercise: 3 stars, optional (b_times2) *)
@@ -530,7 +574,13 @@ Inductive ev : nat -> Prop :=
 Theorem double_even : forall n,
   ev (double n).
 Proof.
-  (* FILL IN HERE *) Admitted.
+intros.
+unfold double. induction n as [| n'].
+Case "n = 0". apply ev_0.
+Case "n = S n'". 
+apply ev_SS. apply IHn'.
+Qed.
+  (* FILL IN HERE *) 
 (** [] *)
 
 (** **** Exercise: 4 stars, optional (double_even_pfobj) *)
@@ -630,7 +680,8 @@ Qed.
            ...
    Briefly explain why.
  
-(* FILL IN HERE *)
+(* Induction on nat is not useful because n' being even does not
+imply S n' is also even. *)
 *)
 (** [] *)
 
@@ -640,7 +691,13 @@ Qed.
 Theorem ev_sum : forall n m,
    ev n -> ev m -> ev (n+m).
 Proof. 
-  (* FILL IN HERE *) Admitted.
+   intros. induction H as [| n'].
+   Case "0". apply H0.
+   Case "SS". assert (S (S n') + m = S (S (n' + m))). reflexivity.
+   rewrite -> H1. apply ev_SS. apply IHev. 
+Qed.
+
+  (* FILL IN HERE *) 
 (** [] *)
 
 (** Another situation where we want to analyze evidence for evenness
@@ -709,7 +766,12 @@ Proof.
 Theorem SSSSev__even : forall n,
   ev (S (S (S (S n)))) -> ev n.
 Proof.
-  (* FILL IN HERE *) Admitted.
+intros n E. inversion E as [| n' E'].
+inversion E' as [| n'' E''].
+apply E''.
+Qed.
+
+
 
 (** The [inversion] tactic can also be used to derive goals by showing
     the absurdity of a hypothesis. *)
@@ -717,7 +779,9 @@ Proof.
 Theorem even5_nonsense : 
   ev 5 -> 2 + 2 = 9.
 Proof.
-  (* FILL IN HERE *) Admitted.
+intros. inversion H. inversion H1. inversion H3 as [| n' E'].
+Qed.
+
 (** [] *)
 
 (** We can generally use [inversion] on inductive propositions.
@@ -740,7 +804,13 @@ Proof.
 Theorem ev_ev__ev : forall n m,
   ev (n+m) -> ev n -> ev m.
 Proof.
-  (* FILL IN HERE *) Admitted.
+intros n m H H1. induction  H1 as [ | k ]. 
+Case " n = 0 ". 
+simpl in H. apply H.
+Case "n = S S k".
+inversion H as [| p].
+apply IHev in H2. apply H2.
+Qed.
 (** [] *)
 
 (** **** Exercise: 3 stars, optional (ev_plus_plus) *)
@@ -826,9 +896,37 @@ Definition b_16 : beautiful 16 :=
     - Prove that 
        forall l, pal l -> l = rev l.
 *)
+Inductive pal {X : Type} : list X -> Prop := 
+ | pal_nil : pal nil
+ | pal_one : forall x:X, pal [x]
+ | pal_more : forall (x:X) (l:list X), pal l -> pal (snoc (x:: l) x).
 
-(* FILL IN HERE *)
+Theorem append_rev_pal : forall (X : Type) (l : list X),
+pal (l ++ rev l).
+Proof.
+intros. induction l as [| h l'].
+Case "l = []". simpl. apply pal_nil.
+Case "l = h :: l'". simpl. rewrite <- snoc_with_append.
+apply pal_more. apply IHl'.
+Qed.
+
+
+Theorem pal_rev : forall (X : Type) (l : list X), 
+pal l -> l = rev l.
+Proof.
+intros. induction H as [|x |h l'].
+Case "l = []".
+reflexivity.
+Case "[x]".
+reflexivity.
+Case "l = h :: l'".
+simpl. rewrite -> rev_snoc.
+rewrite <- IHpal. reflexivity.
+Qed.
+
 (** [] *)
+
+
 
 (** **** Exercise: 5 stars, optional (palindrome_converse) *)
 (** Using your definition of [pal] from the previous exercise, prove
@@ -870,6 +968,33 @@ Definition b_16 : beautiful 16 :=
       of [l3], then [l1] is a subsequence of [l3].  Hint: choose your
       induction carefully!
 *)
+Inductive subseq : list nat -> list nat -> Prop :=
+| subseq_nil : forall l2 : list nat, subseq [] l2
+| subseq_heads_match: forall (h:nat) (l1 l2 : list nat), 
+                      subseq l1 l2 -> subseq (h::l1) (h::l2)
+| subseq_not_match: forall (h:nat) (l1 l2 : list nat),
+                      subseq l1 l2 -> subseq l1 (h::l2).
+
+Theorem subseq_refl : forall l : list nat, subseq l l.
+Proof.
+intros.
+induction l as [| h l']. 
+Case " l = nil ".
+apply subseq_nil.
+Case " l = h::l' ".
+apply subseq_heads_match.
+apply IHl'.
+Qed.
+
+Theorem subseq_trans : forall (l1 l2 l3 : list nat), subseq l1 l2 -> subseq l1 (l2 ++ l3).
+Proof.
+intros.
+induction H as [| h l1' l2'| h l1 l2'].
+apply subseq_nil.
+simpl. apply subseq_heads_match. apply IHsubseq.
+simpl. apply subseq_not_match. apply IHsubseq.
+Qed.
+
 
 (* FILL IN HERE *)
 (** [] *)
