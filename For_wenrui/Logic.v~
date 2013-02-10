@@ -246,7 +246,6 @@ Proof.
     using tactics. (_Hint_: if you make use of previously defined
     theorems, you should only need a single line!) *)
 
-
 Definition beautiful_iff_gorgeous :
   forall n, beautiful n <-> gorgeous n := 
   
@@ -473,9 +472,7 @@ Proof.
 (** Define [True] as another inductively defined proposition.  (The
     intution is that [True] should be a proposition for which it is
     trivial to give evidence.) *)
-Inductive True : Prop :=
-trivial: _ -> true.
-
+Inductive True : Prop := P.
 
 
 
