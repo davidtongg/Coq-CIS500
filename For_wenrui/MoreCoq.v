@@ -1,5 +1,5 @@
 (** * MoreCoq: More About Coq *)
-
+(* Name: Zhiwei Wu, Wenrui Meng 5 hours each*)
 Require Export Poly.
 
 (** This chapter introduces several more Coq tactics that,

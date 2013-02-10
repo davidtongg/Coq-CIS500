@@ -1,5 +1,5 @@
 (** * Prop: Propositions and Evidence *)
-
+(* Name: Zhiwei Wu, Wenrui Meng 5 hours each*)
 Require Export MoreCoq.
 
 (** In previous chapters, we have seen many examples of factual
