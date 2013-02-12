@@ -1316,24 +1316,42 @@ Inductive no_repeats (X : Type) : list X -> Prop :=
 
 (** Finally, state and prove one or more interesting theorems relating
     [disjoint], [no_repeats] and [++] (list append).  *)
+(*I proved two related theorems*)
+Lemma head_not_appears : forall (X : Type) (x:X) (l1 l2 : list X), 
+no_repeats X ((x::l1) ++ l2) -> ~ appears_in x l2.
+Proof.
+intros. 
+induction l1 as [| hd l'].
+simpl in H. inversion H. apply H2.
+simpl in H. inversion H. inversion H3.
+
+assert (~ appears_in x (l'++l2)). unfold not.
+intro. assert (appears_in x (hd::l'++l2)). apply ai_later. apply H8.
+unfold not in H2. apply H2 in H9. apply H9.
+
+apply IHl'. apply head_case. apply H8. apply H7.
+Qed.
+
+
 Theorem disjoint_no_repeats : forall (X : Type) (l1 l2 : list X),
  no_repeats X (l1 ++ l2) -> disjoint X l1 l2.
 Proof.
-(*
+intros. induction l1 as [| x l'].
+Case "l1 = nil".
+unfold disjoint. intros z H1.  inversion H1.
+Case "l1 = x :: l'".
+inversion H. apply IHl' in H3. 
 
-intros. induction l1 as [| hd tl].
-Case "l1 = nil". 
-unfold disjoint. intros. inversion H0.
-Case "l1 = hd :: tl". 
-inversion H. apply IHtl in H3. 
-assert (appears_in  hd (hd::tl)). apply ai_here. 
-assert (~(appears_in hd l2)). 
-*)
-(* TODO *)
+assert (~ appears_in x l2). apply head_not_appears with (l1:=l').
+apply H.
 
-Admitted.
+unfold disjoint. intros. inversion H5.
+      SCase "x1 = x". apply H4.
+      SCase "x1 is not head". unfold disjoint in H3.
+             apply H3 in H7. apply H7.
+Qed.
 
-(* FILL IN HERE *)
+
 (** [] *)
 
 (** **** Exercise: 2 stars, optional (le_exercises) *)
