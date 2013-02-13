@@ -852,6 +852,13 @@ Proof.
         from the context back to an explicit hypothesis in the goal
         formula 
 *)
+Check [1 :: nil].
+
+
+
+
+
+
 
 (* ###################################################### *)
 (** * Additional Exercises *)

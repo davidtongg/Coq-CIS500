@@ -1207,30 +1207,44 @@ Inductive in_order_merge {X:Type}: list X -> list X -> list X -> Prop :=
 | l_head: forall (x:X) (l1 l2 l: list X), 
   in_order_merge l1 l2 l -> in_order_merge l1 (x::l2) (x::l).
 
+Lemma all_false_filter_empty : forall (X : Type) (l : list X) (test: X->bool), 
+all X (fun x => test x = false) l -> filter test l = [].
+Proof.
+intros. induction l as [| hd tl].
+Case "[]". reflexivity.
+Case "hd :: l'".
+inversion H.
+apply IHtl in H3.
+simpl. rewrite H2. apply H3.
+Qed.
+
+Lemma all_true_filter_full : forall (X : Type) (l : list X) (test: X->bool), 
+all X (fun x => test x = true) l -> filter test l = l.
+Proof.
+intros. induction l as [| hd tl].
+Case "[]". reflexivity.
+Case "hd :: l'".
+inversion H.
+apply IHtl in H3.
+simpl. rewrite H2. rewrite H3.
+reflexivity. Qed.
+
+
 Theorem filter_challenge : forall (X : Type) (l l1 l2 : list X) (test : X -> bool),
-all X (fun x:X => test x = true) l1 ->
-all X (fun x:X => test x = false) l2 ->
+all X  (fun x => test x = true) l1 ->
+all X  (fun x => test x = false) l2 ->
 in_order_merge l1 l2 l -> 
 filter test l = l1.
 Proof.
-intros. 
-induction l as [| hd l'].
-Case "l = []". inversion H1. reflexivity. reflexivity.
-Case "l = hd :: l'". inversion H1.
-    SCase "nil_l".  inversion H0.  
-           SSCase "l2 = []". rewrite <- H5 in H4. inversion H4.
-           SSCase "l2 = hd0 :: l0". rewrite H4 in H1.
-
-
- rewrite <- H7 in H4. inversion H4. 
-           rewrite <- H9. 
-           simpl. rewrite H5. 
-
-
-
-
-Admitted.
-(* FILL IN HERE *)
+intros.  induction H1. 
+Case "nil_l ". apply all_false_filter_empty.  apply H0.
+Case "l_nil".  apply all_true_filter_full.   apply H.
+Case "head_l ". inversion H. apply IHin_order_merge in H5. simpl.
+                rewrite H4. rewrite H5. reflexivity.
+                apply H0.
+Case "l_head". inversion H0. simpl. rewrite H4. 
+               apply IHin_order_merge. apply H. apply H5.
+Qed.
 (** [] *)
 
 (** **** Exercise: 5 stars, advanced, optional (filter_challenge_2) *)
@@ -1424,8 +1438,11 @@ Proof.
     does not stutter.) *)
 
 Inductive nostutter:  list nat -> Prop :=
- (* FILL IN HERE *)
-.
+ | nil_nostutter : nostutter nil
+ | one_nostutter : forall (x : nat), nostutter [x]
+ | two_nostutter : forall (x y : nat), (x <> y) -> nostutter [x,y]
+ | heads_nostutter : forall (x y : nat) (l : list nat), 
+                            nostutter (y :: l) -> (x <> y) -> nostutter (x::y::l).
 
 (** Make sure each of these tests succeeds, but you are free
     to change the proof if the given one doesn't work for you.
@@ -1440,32 +1457,21 @@ Inductive nostutter:  list nat -> Prop :=
     tactics.  *)
 
 Example test_nostutter_1:      nostutter [3,1,4,1,5,6].
-(* FILL IN HERE *) Admitted.
-(* 
-  Proof. repeat constructor; apply beq_false_not_eq; auto. Qed.
-*)
+Proof. repeat constructor; apply beq_false_not_eq; auto. Qed.
 
 Example test_nostutter_2:  nostutter [].
-(* FILL IN HERE *) Admitted.
-(* 
-  Proof. repeat constructor; apply beq_false_not_eq; auto. Qed.
-*)
+Proof. repeat constructor; apply beq_false_not_eq; auto. Qed.
 
 Example test_nostutter_3:  nostutter [5].
-(* FILL IN HERE *) Admitted.
-(* 
-  Proof. repeat constructor; apply beq_false_not_eq; auto. Qed.
-*)
+Proof. repeat constructor; apply beq_false_not_eq; auto. Qed.
 
 Example test_nostutter_4:      not (nostutter [3,1,1,4]).
-(* FILL IN HERE *) Admitted.
-(* 
   Proof. intro.
   repeat match goal with 
     h: nostutter _ |- _ => inversion h; clear h; subst 
   end.
-  contradiction H1; auto. Qed.
-*)
+  contradiction H5;  auto. contradiction H5. auto.
+Qed.
 (** [] *)
 
 (** **** Exercise: 4 stars, advanced (pigeonhole principle) *)
@@ -1481,20 +1487,38 @@ Example test_nostutter_4:      not (nostutter [3,1,1,4]).
 Lemma app_length : forall {X:Type} (l1 l2 : list X),
   length (l1 ++ l2) = length l1 + length l2. 
 Proof. 
-  (* FILL IN HERE *) Admitted.
+intros. induction l1 as [| hd tl].
+Case "l1 = []".
+reflexivity.
+Case "l1 = hd :: tl".
+simpl. rewrite IHtl. reflexivity.
+Qed.
+
 
 Lemma appears_in_app_split : forall {X:Type} (x:X) (l:list X),
   appears_in x l -> 
   exists l1, exists l2, l = l1 ++ (x::l2).
 Proof.
-  (* FILL IN HERE *) Admitted.
+intros.
+induction l as [| hd tl].
+Case "l = nil".
+inversion H.
+Case "l = hd :: tl".
+inversion H. SCase "x = hd". exists nil. exists tl. reflexivity.
+             SCase "ai_later". apply IHtl in H1. inversion H1 as [l1' Hl2].
+                               inversion Hl2 as [l2' Hl12]. 
+                               exists (hd::l1'). exists (l2'). simpl.
+                               rewrite Hl12. reflexivity.
+Qed.
+
 
 (** Now define a predicate [repeats] (analogous to [no_repeats] in the
    exercise above), such that [repeats X l] asserts that [l] contains
    at least one repeated element (of type [X]).  *)
 
 Inductive repeats {X:Type} : list X -> Prop :=
-  (* FILL IN HERE *)
+ | repeat_head : forall (x : X) (l : list X), appears_in x l -> repeats (x::l)
+ | repeat_tail : forall (x : X) (l : list X), repeats l -> repeats (x::l)
 .
 
 (** Now here's a way to formalize the pigeonhole principle. List [l2]
@@ -1503,13 +1527,45 @@ Inductive repeats {X:Type} : list X -> Prop :=
    at least two items must have the same label.  You will almost
    certainly need to use the [excluded_middle] hypothesis. *)
 
+Lemma pigeonhole_helper: forall {X:Type} (x y : X) (l1 l2 : list X),
+appears_in x (l1++(y::l2)) -> x<>y -> appears_in x (l1++l2).
+Proof.
+intros. induction l1 as [| hd tl].
+Case "l1 = nil". simpl in H. inversion H. contradiction H0. apply H2.
+Case "l1 = hd::tl". inversion H. apply ai_here. 
+apply IHtl in H2. apply ai_later. apply H2.
+Qed.
+
+
 Theorem pigeonhole_principle: forall {X:Type} (l1 l2:list X),
   excluded_middle -> 
   (forall x, appears_in x l1 -> appears_in x l2) -> 
   length l2 < length l1 -> 
   repeats l1.  
-Proof.  intros X l1. induction l1.
-  (* FILL IN HERE *) Admitted.
+Proof.  intros. generalize dependent l2.
+induction l1 as [| hd tl].
+Case "l1 = nil".
+intros. inversion H1.
+Case "l1 = hd :: tl".
+assert ((appears_in hd tl) \/ (~ appears_in hd tl)).  
+apply H.  
+inversion H0. intros.  
+   SCase "repeat_head appears_in hd tl". apply repeat_head. apply H1.
+   SCase "repeat_tail ~ appears_in hd tl". intros. 
+          assert (appears_in hd l2). apply H2. apply ai_here.
+          apply appears_in_app_split in H4. inversion H4 as [ la Hb ].
+          inversion Hb as [lb]. 
+          remember (la ++ lb) as l2'. apply repeat_tail.  apply IHtl with (l2:= l2').  
+
+          intros. assert (x <> hd). unfold not. intro. rewrite H7 in H6. 
+          apply H1 in H6. apply H6. rewrite Heql2'. 
+          apply ai_later with (b := hd) in H6. apply H2 in H6. rewrite H5 in H6.
+          apply pigeonhole_helper in H6. apply H6. apply H7.
+           
+          rewrite H5 in H3.  rewrite app_length in H3. simpl in H3.
+          rewrite <- plus_n_Sm in H3. rewrite <- app_length in H3. rewrite Heql2'.
+          apply Lt.lt_S_n. apply H3.
+Qed.
 (** [] *)
 
 (* $Date: 2013-02-06 20:50:09 -0500 (Wed, 06 Feb 2013) $ *)
