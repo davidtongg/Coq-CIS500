@@ -329,6 +329,8 @@ Qed.
 Definition b_plus3' : forall n, beautiful n -> beautiful (3+n) := 
   fun n => fun H : beautiful n =>
     b_sum 3 n b_3 H.
+
+
 (*?????*)
 Check b_plus3'.
 (* ===> b_plus3' : forall n, beautiful n -> beautiful (3+n) *)

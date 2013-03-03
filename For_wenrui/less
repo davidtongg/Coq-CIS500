@@ -1,0 +1,48 @@
+    programming languages, Coq can often work out these types even if
+    some examples.  There are actually three different ways to do this
+(** The keyword [simpl] ("simplify") tells Coq precisely how to
+(** Having made the assertion, we can also ask Coq to verify it,
+    equality are the same after simplification." *)
+    way to construct _fully certified_ programs in mainstream
+    documentation if you're interested.)  Whenever possible, we'll
+    specification -- a truth table -- for the [orb] function: *)
+    files, these pieces of text appear in a [different font]. *)
+    sure that the [Example] assertions below each can be verified by
+(** This function should return [true] if either or both of
+        another one -- that is, if [n] is a natural number, then [S n]
+    - if [n] is an expression belonging to the set [nat], then [S n]
+(** The second branch can be read: "if [n] has the form [S n']
+    number.  However, there is a fundamental difference: functions
+    simplified to [match n with | O => O | S m' => m' end] -- while
+(** The simplification that Coq performs to reach this conclusion can
+(** As a notational convenience, if two or more arguments have
+    definition, [(n m : nat)] means just the same as if we had written
+    factorial(n)  =  n * factorial(n-1)     (if n>0)
+(** * Proof By Simplification *)
+    function's definition to simplify the expressions on both sides of
+    The same sort of "proof by simplification" can be used to prove
+    same as the examples above: the only differences are that we've
+    added the quantifier [forall n:nat] and that we've used the
+    difference is purely a matter of style; the keywords [Example] and
+(** The [reflexivity] command implicitly simplifies both sides of the
+    equality before testing to see if they are the same, so we can
+    sides.  The reason for this difference is that, when reflexivity
+(** Explain the difference.  [] *)
+    about programs will begin with some quantifiers (e.g., "for all
+    quantifiers or hypotheses from the goal to a "context" of current
+    For example, here is a slightly different proof of the same theorem. *)
+    simplification to prove this theorem.  Instead, we prove it by
+    observing that, if we are assuming [n = m], then we can replace
+  intros n m.   (* move both quantifiers into the context *)
+(** The first line of the proof moves the universally quantified
+    making this change in the above proof and see what difference it
+    For example, if we try to prove the following fact using the 
+    expression [n + 1]; neither can be simplified.
+    And if [n = S n'] for some [n'], then, although we don't know
+    so there is no need to specify any names.  (We could also have
+(** Consider a different, more efficient representation of natural
+    in the set called [nat], and if [n] is in the set then so is [S
+    For each notation-symbol in Coq we can specify its _precedence level_
+    and its _associativity_. The precedence level n can be specified by the
+    expressions containing different symbols. The associativity is helpful
+    symbol. For example, the parameters specified above for [+] and [*]

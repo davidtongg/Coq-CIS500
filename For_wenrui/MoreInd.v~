@@ -1,4 +1,3 @@
-(* Zhiwei Wu, Wenrui Meng 1 hour for each *)
 (** * MoreInd: More on Induction *)
 
 Require Export Logic. 

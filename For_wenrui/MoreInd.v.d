@@ -1,1 +1,1 @@
-MoreInd.vo MoreInd.glob MoreInd.v.beautified: MoreInd.v ./Logic.vo
+MoreInd.vo MoreInd.glob: MoreInd.v ./Logic.vo

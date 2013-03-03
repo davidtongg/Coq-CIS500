@@ -1,1 +1,1 @@
-MoreProp.vo MoreProp.glob MoreProp.v.beautified: MoreProp.v ./Prop.vo
+MoreProp.vo MoreProp.glob: MoreProp.v ./Prop.vo

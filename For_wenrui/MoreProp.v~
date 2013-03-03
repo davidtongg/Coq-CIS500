@@ -107,6 +107,7 @@ Definition true_for_zero (P:nat->Prop) : Prop :=
 Definition true_for_all_numbers (P:nat->Prop) : Prop :=
   forall n, P n.
 
+
 (** The second, [preserved_by_S], takes [P] and builds the proposition
     that, if [P] is true for some natural number [n'], then it is also
     true by the successor of [n'] -- i.e. that [P] is _preserved by
@@ -139,22 +140,25 @@ Theorem combine_odd_even_intro :
     (oddb n = false -> Peven n) ->
     combine_odd_even Podd Peven n.
 Proof.
+intros. unfold combine_odd_even. simpl. destruct (oddb n).  
+Case "true". apply H. reflexivity.
+Case "false". apply H0. reflexivity.
+Qed. 
+(*
 intros. remember (oddb n) as b. destruct b.
 Case "odd".
 unfold combine_odd_even. rewrite <- Heqb. apply H. trivial.
 
 Case "even".
 unfold combine_odd_even. rewrite <- Heqb. apply  H0. trivial. Qed.
-
+*)
 Theorem combine_odd_even_elim_odd :
   forall (Podd Peven : nat -> Prop) (n : nat),
     combine_odd_even Podd Peven n ->
     oddb n = true ->
     Podd n.
 Proof.
-intros. unfold combine_odd_even in H. rewrite -> H0 in H.
-apply H. Qed.
-
+intros. unfold combine_odd_even in H. rewrite H0 in H. apply H. Qed.
 
 Theorem combine_odd_even_elim_even :
   forall (Podd Peven : nat -> Prop) (n : nat),

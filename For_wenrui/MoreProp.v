@@ -1,3 +1,4 @@
+(*Zhiwei Wu, Wenrui Meng 1 hour for each *)
 (** * MoreProp: More about Propositions and Evidence *)
 
 Require Export "Prop".

@@ -1,6 +1,19 @@
 (** * Logic: Logic in Coq *)
+(* Zhiwei Wu, Wenrui Meng  5 hours for each*)
 
 Require Export MoreProp. 
+Inductive Ptree (X:Type) : Type :=
+ | c1 : X -> X -> Ptree X
+ | c2 : Ptree X -> Ptree X -> Ptree X
+.
+Implicit Arguments c1 [[X]].
+Implicit Arguments c2 [[X]].
+Fixpoint flug {X Y : Type } (l : Ptree X) (f : X->Y) : Ptree Y :=
+match l with
+|  c1 x1 x2 => c1 (f x1) (f x2)
+|  c2 p1 p2 => c2 (flug p1 f) (flug p2 f)
+end
+.
 
 (** Coq's built-in logic is very small: the only primitives are
     [Inductive] definitions, universal quantification ([forall]), and
@@ -475,7 +488,9 @@ Proof.
 (** Define [True] as another inductively defined proposition.  (The
     intution is that [True] should be a proposition for which it is
     trivial to give evidence.) *)
+
 Inductive True : Prop := P.
+
 
 (** [] *)
 
@@ -531,6 +546,9 @@ Proof.
    _Theorem_: [P] implies [~~P], for any proposition [P].
 
    _Proof_:
+           Suppose P as a Prop, we must show (P->False)->False according to the definition of not.
+           Suppose (P-> False) as H, we need make a implication False according to the hypertheses. 
+           We can apply P in H, then we get False, which is exact the goal.
 (* FILL IN HERE *)
    []
 
@@ -564,7 +582,13 @@ Qed.
     : Prop, ~(P /\ ~P)]. *)
 
 (* FILL IN HERE *)
-(** [] *)
+(**
+_Proof_: 
+By the definition of not, we must show  P/\ ~P -> False.
+Then we split the hyperthesis P/\~P into two hypertheses P as H1 and ~P as H2.
+We change H2 to P -> False according to the definition of not.
+Applying H1 in H2, we can get False.
+ *)
 
 Theorem five_not_even :  
   ~ ev 5.
@@ -1570,3 +1594,27 @@ Qed.
 
 (* $Date: 2013-02-06 20:50:09 -0500 (Wed, 06 Feb 2013) $ *)
 
+
+Inductive ptree (X:Type) : Type :=
+| c11 : X -> X -> ptree X
+| c21 : ptree X -> ptree X -> ptree X.
+
+
+
+
+
+
+
+
+
+
+
+Definition exam_test1 : forall (P Q R : Prop), (P \/ Q -> R) -> Q -> R :=
+fun (P Q R : Prop) => fun (H: P \/ Q -> R) (X:Q) => H (or_intror P Q X).
+Check le_n. Check (le_n 1 ).
+
+(*Fixpoint remove {X:Type} (l1 : list X) (x: X) : list X :=
+match l1 with
+[] => []
+|hd::l1' => if hd = x then l1' else [hd]++ remove l1' x
+end. *)
