@@ -1,0 +1,142 @@
+update_eq: forall (n : nat) (x : id) (st : state), update st x n x = n
+update_neq:
+  forall (x2 x1 : id) (n : nat) (st : state),
+  beq_id x2 x1 = false -> update st x2 n x1 = st x1
+update_example: forall n : nat, update empty_state (Id 2) n (Id 3) = 0
+update_shadow:
+  forall (n1 n2 : nat) (x1 x2 : id) (st : state),
+  update (update st x2 n1) x2 n2 x1 = update st x2 n2 x1
+update_same:
+  forall (n1 : nat) (x1 x2 : id) (st : state),
+  st x1 = n1 -> update st x1 n1 x2 = st x2
+update_permute:
+  forall (n1 n2 : nat) (x1 x2 x3 : id) (st : state),
+  beq_id x2 x1 = false ->
+  update (update st x2 n1) x1 n2 x3 = update (update st x1 n2) x2 n1 x3
+aexp1:
+  aeval (update empty_state X 5) (APlus (ANum 3) (AMult (AId X) (ANum 2))) =
+  13
+bexp1:
+  beval (update empty_state X 5) (BAnd BTrue (BNot (BLe (AId X) (ANum 4)))) =
+  true
+Imp.E_Ass:
+  forall (st : state) (a1 : aexp) (n : nat) (x : id),
+  aeval st a1 = n -> (x ::= a1) / st || update st x n
+Imp.ceval_ind:
+  forall P : Imp.com -> state -> state -> Prop,
+  (forall st : state, P SKIP st st) ->
+  (forall (st : state) (a1 : aexp) (n : nat) (x : id),
+   aeval st a1 = n -> P (x ::= a1) st (update st x n)) ->
+  (forall (c1 c2 : Imp.com) (st st' st'' : state),
+   c1 / st || st' ->
+   P c1 st st' -> c2 / st' || st'' -> P c2 st' st'' -> P (c1; c2) st st'') ->
+  (forall (st st' : state) (b : bexp) (c1 c2 : Imp.com),
+   beval st b = true ->
+   c1 / st || st' -> P c1 st st' -> P (IFB b THEN c1 ELSE c2 FI) st st') ->
+  (forall (st st' : state) (b : bexp) (c1 c2 : Imp.com),
+   beval st b = false ->
+   c2 / st || st' -> P c2 st st' -> P (IFB b THEN c1 ELSE c2 FI) st st') ->
+  (forall (b : bexp) (st : state) (c : Imp.com),
+   beval st b = false -> P (WHILE b DO c END) st st) ->
+  (forall (st st' st'' : state) (b : bexp) (c : Imp.com),
+   beval st b = true ->
+   c / st || st' ->
+   P c st st' ->
+   (WHILE b DO c END) / st' || st'' ->
+   P (WHILE b DO c END) st' st'' -> P (WHILE b DO c END) st st'') ->
+  forall (c : Imp.com) (s s0 : state), c / s || s0 -> P c s s0
+ceval_example1:
+  (X ::= ANum 2;
+   IFB BLe (AId X) (ANum 1) THEN Y ::= ANum 3 ELSE Z ::= ANum 4 FI) /
+  empty_state || update (update empty_state X 2) Z 4
+ceval_example2:
+  (X ::= ANum 0; Y ::= ANum 1; Z ::= ANum 2) / empty_state
+  || update (update (update empty_state X 0) Y 1) Z 2
+pup_to_2_ceval:
+  pup_to_n / update empty_state X 2
+  || update
+       (update
+          (update (update (update (update empty_state X 2) Y 0) Y 2) X 1) Y 3)
+       X 0
+XtimesYinZ_spec:
+  forall st : state, XtimesYinZ / st || update st Z (st X * st Y)
+s_execute2:
+  s_execute (update empty_state X 3) [3, 4] [SPush 4, SLoad X, SMult, SPlus] =
+  [15, 4]
+BreakImp.E_Ass:
+  forall (st : state) (a1 : aexp) (n : nat) (x : id),
+  aeval st a1 = n ->
+  BreakImp.ceval (BreakImp.CAss x a1) st BreakImp.SContinue (update st X n)
+BreakImp.ceval_ind:
+  forall P : BreakImp.com -> state -> BreakImp.status -> state -> Prop,
+  (forall st : state, P BreakImp.CSkip st BreakImp.SContinue st) ->
+  (forall st : state, P BreakImp.CBreak st BreakImp.SBreak st) ->
+  (forall (st : state) (a1 : aexp) (n : nat) (x : id),
+   aeval st a1 = n ->
+   P (BreakImp.CAss x a1) st BreakImp.SContinue (update st X n)) ->
+  (forall (c1 c2 : BreakImp.com) (st st' st'' : state) (s : BreakImp.status),
+   BreakImp.ceval c1 st BreakImp.SContinue st' ->
+   P c1 st BreakImp.SContinue st' ->
+   BreakImp.ceval c2 st' s st'' ->
+   P c2 st' s st'' -> P (BreakImp.CSeq c1 c2) st s st'') ->
+  (forall (c1 c2 : BreakImp.com) (st st' : state),
+   BreakImp.ceval c1 st BreakImp.SBreak st' ->
+   P c1 st BreakImp.SBreak st' ->
+   P (BreakImp.CSeq c1 c2) st BreakImp.SBreak st') ->
+  (forall (c1 c2 : BreakImp.com) (b : bexp) (st st' : state)
+     (s : BreakImp.status),
+   BreakImp.ceval (if beval st b then c1 else c2) st s st' ->
+   P (if beval st b then c1 else c2) st s st' ->
+   P (BreakImp.CIf b c1 c2) st s st') ->
+  (forall (c : BreakImp.com) (b : bexp) (st : state),
+   beval st b = false -> P (BreakImp.CWhile b c) st BreakImp.SContinue st) ->
+  (forall (c : BreakImp.com) (b : bexp) (st st' st'' : state),
+   beval st b = true ->
+   BreakImp.ceval c st BreakImp.SContinue st' ->
+   P c st BreakImp.SContinue st' ->
+   BreakImp.ceval (BreakImp.CWhile b c) st' BreakImp.SContinue st'' ->
+   P (BreakImp.CWhile b c) st' BreakImp.SContinue st'' ->
+   P (BreakImp.CWhile b c) st BreakImp.SContinue st'') ->
+  (forall (c : BreakImp.com) (b : bexp) (st st' : state),
+   beval st b = true ->
+   BreakImp.ceval c st BreakImp.SBreak st' ->
+   P c st BreakImp.SBreak st' ->
+   P (BreakImp.CWhile b c) st BreakImp.SContinue st') ->
+  forall (c : BreakImp.com) (s : state) (s0 : BreakImp.status) (s1 : state),
+  BreakImp.ceval c s s0 s1 -> P c s s0 s1
+x_in_state:
+  forall (st : id -> nat) (X : id) (x : nat), st X = x -> st = update st X x
+havoc_example2: (SKIP; HAVOC Z) / empty_state || update empty_state Z 42
+havoc_example1: (HAVOC X) / empty_state || update empty_state X 0
+ceval_ind:
+  forall P : com -> state -> state -> Prop,
+  (forall st : state, P SKIP st st) ->
+  (forall (st : state) (a1 : aexp) (n : nat) (X : id),
+   aeval st a1 = n -> P (X ::= a1) st (update st X n)) ->
+  (forall (c1 c2 : com) (st st' st'' : state),
+   c1 / st || st' ->
+   P c1 st st' -> c2 / st' || st'' -> P c2 st' st'' -> P (c1; c2) st st'') ->
+  (forall (st st' : state) (b1 : bexp) (c1 c2 : com),
+   beval st b1 = true ->
+   c1 / st || st' -> P c1 st st' -> P (IFB b1 THEN c1 ELSE c2 FI) st st') ->
+  (forall (st st' : state) (b1 : bexp) (c1 c2 : com),
+   beval st b1 = false ->
+   c2 / st || st' -> P c2 st st' -> P (IFB b1 THEN c1 ELSE c2 FI) st st') ->
+  (forall (b1 : bexp) (st : state) (c1 : com),
+   beval st b1 = false -> P (WHILE b1 DO c1 END) st st) ->
+  (forall (st st' st'' : state) (b1 : bexp) (c1 : com),
+   beval st b1 = true ->
+   c1 / st || st' ->
+   P c1 st st' ->
+   (WHILE b1 DO c1 END) / st' || st'' ->
+   P (WHILE b1 DO c1 END) st' st'' -> P (WHILE b1 DO c1 END) st st'') ->
+  (forall (st : state) (X : id) (n : nat), P (HAVOC X) st (update st X n)) ->
+  forall (c : com) (s s0 : state), c / s || s0 -> P c s s0
+E_Ass:
+  forall (st : state) (a1 : aexp) (n : nat) (X : id),
+  aeval st a1 = n -> (X ::= a1) / st || update st X n
+E_Havoc:
+  forall (st : state) (X : id) (n : nat), (HAVOC X) / st || update st X n
+aeval_weakening:
+  forall (i : id) (st : state) (a : aexp) (ni : nat),
+  var_not_used_in_aexp i a -> aeval (update st i ni) a = aeval st a
