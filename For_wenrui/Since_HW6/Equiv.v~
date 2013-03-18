@@ -1,6 +1,6 @@
 (** * Equiv: Program Equivalence *)
-
-
+(* Name: Zhiwei Wu & Wenrui Meng *)
+ 
 Require Export Imp.
 
 (** *** Some general advice for working on exercises:
@@ -132,7 +132,7 @@ Definition cequiv (c1 c2 : com) : Prop :=
 {}
 
 
-
+(*TODO*)
 
  *)
 [] *)
@@ -1587,27 +1587,84 @@ Definition p2 : com :=
     SKIP
   END.
 
+Lemma gt_SN_0 : forall n,
+S n > 0.
+Proof. intros. induction n as [| n'].
+constructor.
+inversion IHn'; repeat constructor.
+subst; repeat constructor. assumption.
+Qed.
+
+
+Lemma p1_loop_forever : forall st st'  X,
+st X > 0 ->
+~ ((WHILE (BNot (BEq (AId X) (ANum 0))) DO
+    HAVOC Y;
+    X ::= APlus (AId X) (ANum 1)
+  END) / st || st').
+Proof.
+intros.  unfold  not.
+intros. 
+remember (WHILE BNot (BEq (AId X) (ANum 0))
+        DO HAVOC Y; X ::= APlus (AId X) (ANum 1) END) as cw.
+
+
+ceval_cases (induction H0) Case; inversion Heqcw; subst; clear Heqcw.
+simpl in H0. inversion H. 
+ rewrite <- H2 in H0. inversion H0.
+ rewrite <- H1 in H0. inversion H0.
+
+
+apply IHceval2. 
+inversion H0_. subst. inversion H6. subst. simpl. 
+destruct (st'0 X). simpl; rewrite update_eq. constructor.
+rewrite update_eq. rewrite plus_comm. simpl.  apply gt_SN_0.
+reflexivity.
+Qed.
+
+
+Lemma P2_loop_forever: forall st st' X,
+st X > 0 ->
+~ ((WHILE BNot (BEq (AId X) (ANum 0)) DO SKIP END) / st || st').
+Proof.
+
+intros.  unfold  not.
+intros. 
+remember (WHILE BNot (BEq (AId X) (ANum 0)) DO SKIP END) as cw.
+
+
+ceval_cases (induction H0) Case; inversion Heqcw; subst; clear Heqcw.
+simpl in H0. inversion H. 
+ rewrite <- H2 in H0. inversion H0.
+ rewrite <- H1 in H0. inversion H0.
+
+
+apply IHceval2. 
+inversion H0_. subst. assumption.  reflexivity. 
+Qed.
+
 
 Theorem p1_p2_equiv : cequiv p1 p2.
 Proof.
 unfold cequiv, p1, p2.
-intros. split. Check (AId X). remember (aeval st (AId X)) as x.
-destruct x; intro.
-inversion H. apply E_WhileEnd. assumption.
+intros. split.  remember (aeval st (AId X)) as x.
+destruct x. intro.
+inversion H.  apply E_WhileEnd. assumption.
 simpl in H2. subst.  simpl in Heqx. rewrite <- Heqx in H2. inversion H2.
 
 assert (~((WHILE BNot (BEq (AId X) (ANum 0))  DO HAVOC Y; X ::= APlus (AId X) (ANum 1) END) / st || st')).
-remember ((WHILE BNot (BEq (AId X) (ANum 0))  DO HAVOC Y; X ::= APlus (AId X) (ANum 1) END)) as cw.
-ceval_cases (induction H) Case; inversion Heqcw; subst; clear Heqcw.
-simpl in Heqx. simpl in H. rewrite <- Heqx in H. inversion H.
+apply p1_loop_forever. simpl in Heqx. rewrite <- Heqx. apply gt_SN_0. contradiction.
 
 
-apply WHILE_true_nonterm with (b:= BNot (BEq (AId X) (ANum 0)))
-(c := (HAVOC Y; X ::= APlus (AId X) (ANum 1))) (st:= st) (st':= st').
-assert ().
+ remember (aeval st (AId X)) as x.
+destruct x. intro.
+inversion H.  apply E_WhileEnd. assumption.
+simpl in H2. subst.  simpl in Heqx. rewrite <- Heqx in H2. inversion H2.
 
-
- (* FILL IN HERE *) Admitted.
+intro. assert (~ ((WHILE BNot (BEq (AId X) (ANum 0)) DO SKIP END) / st || st')).
+apply P2_loop_forever. simpl in Heqx. rewrite <- Heqx. apply gt_SN_0.
+contradiction.
+Qed.
 
 Definition p3 : com :=
   Z ::= ANum 1;
@@ -1622,7 +1679,46 @@ Definition p4 : com :=
 
 
 Theorem p3_p4_inequiv : ~ cequiv p3 p4.
-Proof. (* FILL IN HERE *) Admitted.
+Proof.
+unfold cequiv, p3, p4, not.
+intros.   
+assert ((Z ::= ANum 1;
+       WHILE BNot (BEq (AId X) (ANum 0)) DO HAVOC X; HAVOC Z END) / (update empty_state X 1)         ||  (update (update empty_state X 0) Z 2) ).
+apply E_Seq with (update (update empty_state X 1) Z 1). apply E_Ass. reflexivity.
+apply E_WhileLoop with (st':= update (update empty_state X 0) Z 2). reflexivity.
+apply E_Seq with (update (update empty_state Z 1) X 0). 
+
+replace (update (update empty_state X 1) Z 1) with (update (update empty_state Z 1) X 1).
+replace (update (update empty_state Z 1) X 0) with (update (update (update empty_state Z 1) X 1) X 0). 
+
+constructor. 
+apply functional_extensionality. remember (update empty_state Z 1) as stZ.
+intros. apply update_shadow. 
+apply functional_extensionality. intros. apply update_permute. reflexivity.
+
+replace (update (update empty_state Z 1) X 0) with (update (update empty_state X 0) Z 1).
+replace ( update (update empty_state X 0) Z 2) with
+(update (update (update empty_state X 0) Z 1) Z 2).
+
+constructor.
+apply functional_extensionality. remember (update empty_state X 0) as stX.
+intros. apply update_shadow. 
+apply functional_extensionality. intros. apply update_permute. reflexivity.
+
+apply E_WhileEnd. reflexivity.
+apply H in H0. 
+ inversion H0. subst. inversion H3. subst. simpl in H6. 
+replace (update (update empty_state X 1) X 0) with (update empty_state X 0) in H6.
+
+
+inversion H6. subst. simpl in H7. 
+
+
+ assert ((update (update empty_state X 0) Z 1) Z = (update (update empty_state X 0) Z 2) Z).
+ rewrite H7. reflexivity.
+ inversion H1.
+ apply functional_extensionality. intro. symmetry. apply update_shadow.
+Qed.
 
 Definition p5 : com :=
   WHILE (BNot (BEq (AId X) (ANum 1))) DO
@@ -1633,8 +1729,70 @@ Definition p6 : com :=
   X ::= ANum 1.
 
 
+Lemma x_in_state : forall st  X x,
+st X = x -> st = update st X x.
+Proof.
+intros.
+apply functional_extensionality.
+intro Y.
+remember (beq_id X Y). destruct b.
+Case "X is Y".
+apply beq_id_eq in Heqb. subst. rewrite update_eq. trivial.
+
+Case "X is not Y".
+rewrite update_neq. trivial. symmetry. assumption.
+Qed.
+
+
+
 Theorem p5_p6_equiv : cequiv p5 p6.
-Proof. (* FILL IN HERE *) Admitted.
+Proof. 
+unfold cequiv, p5, p6.
+intros st st'. 
+
+split;
+intro H.
+
+Case "->".
+remember (WHILE BNot (BEq (AId X) (ANum 1)) DO HAVOC X END) as cw.
+induction H; subst; inversion Heqcw.
+SCase "WHile_End".
+rewrite H1 in H.  
+simpl in H. apply negb_false_iff in H. 
+apply beq_nat_true in H.
+assert (update st X 1 = st). symmetry. apply x_in_state. assumption.
+assert ((X ::= ANum 1) / st || (update st X 1)). constructor. reflexivity.
+rewrite -> H0 in H3. assumption.
+
+SCase "While_Loop".
+subst. clear Heqcw. 
+assert ((X ::= ANum 1) / st' || st''). apply IHceval2. reflexivity.
+inversion H0. subst. inversion H2. subst. simpl in H2. simpl.
+replace (update (update st X n) X 1) with (update st X 1).
+apply E_Ass. simpl. trivial.
+apply functional_extensionality. intro. symmetry. apply update_shadow.
+
+
+Case "<-". 
+inversion H; subst.
+simpl in H. simpl. remember (beq_nat (aeval st (AId X)) 1). 
+destruct b.
+SCase "while end". symmetry in Heqb. apply beq_nat_true in Heqb. 
+simpl in Heqb. assert (st = (update st X 1)). apply x_in_state.
+assumption. rewrite <- H0. apply E_WhileEnd. simpl.
+apply negb_false_iff. rewrite Heqb. reflexivity.
+
+SCase "while loop". 
+assert ((HAVOC X) / st || (update st X 1)).
+constructor. remember (update st X 1) as st'.
+apply E_WhileLoop with st'. simpl. simpl in Heqb. rewrite <- Heqb. trivial.
+assumption.
+apply E_WhileEnd. simpl. rewrite Heqst'. simpl. reflexivity.
+Qed.
+
+
+
+
 (** [] *)
 
 End Himp.
@@ -1865,4 +2023,4 @@ Proof.
 (* Hint: You'll need [functional_extensionality] *)
 (* FILL IN HERE *) Admitted.
 (** [] *)
-
+ 
